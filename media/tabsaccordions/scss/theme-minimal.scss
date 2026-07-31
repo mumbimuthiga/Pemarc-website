@@ -1,0 +1,34 @@
+/**
+ * [Copyright Regular Labs]
+ */
+
+@import "../../regularlabs/scss/_variables";
+@import "_mixins";
+
+[data-rlta-element="container"][data-rlta-state="ready"][data-rlta-theme="minimal"] {
+    @import "_styling-solid";
+
+    &[data-rlta-type="tabs"] > [data-rlta-element="button-list"],
+    &[data-rlta-type="accordions"] {
+        > [data-rlta-element="button"] {
+            background-color: transparent;
+            border-color:     transparent;
+
+            &:hover {
+                background-color: $color-tab-background-hover;
+                border-color:     $color-border;
+            }
+
+            &:not([data-rlta-color]) {
+                &:not([data-rlta-state="closed"]),
+                &:not([data-rlta-state="closed"]):hover {
+                    background-color: $color-tab-background-active;
+                    border-color:     $color-border-active;
+                }
+            }
+        }
+    }
+
+    @include colors(false, false, 500, false, false, 500, false, false, 100, true, true);
+    @include color("black", false, false, $rl-black, false, false, $rl-black, false, false, rl-color(gray, 100), true, true);
+}

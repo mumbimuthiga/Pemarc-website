@@ -1,0 +1,307 @@
+/**
+ * @name		Mobile Menu CK
+ * @package		com_mobilemenuck
+ * @copyright	Copyright (C) 2017. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @author		Cedric Keiflin - http://www.template-creator.com - http://www.joomlack.fr
+ */
+
+.ckadminsidebar {
+	float: left;
+	width: 220px;
+	margin-right: 10px;
+}
+
+body:not(.contentpane) .ckadminarea {
+	/*float: left;*/
+	width: calc(100% - 230px);
+	margin-left: 230px;
+}
+
+.animate {
+	transition: all 0.5s ease;
+}
+
+#workspaceck * {
+	box-sizing: border-box;
+	font-family: verdana;
+}
+
+#workspaceck {
+	position: relative;
+	padding-right: 45px;
+	margin-left: 90px;
+}
+
+#addslide {
+	background: #fff;
+	height: 120px;
+	width: 120px;
+	color: #222;
+	font-size: 13px;
+	text-align: center;
+	cursor: pointer;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1) inset;
+	border: 1px dashed #ccc;
+	position: relative;
+	margin: 8px;
+	float: left;
+}
+
+.addslidetext {
+	position: absolute;
+	height: 25px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #222;
+	color: #fff;
+	line-height: 25px;
+}
+
+.addslideicon {
+	color: #aaa;
+	font-size: 30px;
+	line-height: 80px;
+	height: 95px;
+}
+
+#addslide:hover .addslideicon {
+	color: #222;
+	border-color: #c1c1c1;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1) inset, 0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.slidethumb {
+	padding: 0;
+	margin: 8px;
+	border: 1px solid #C1C1C1;
+	text-align: left;
+	background: #eee none repeat scroll 0 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1) inset, 0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+	width: 120px;
+	height: 120px;
+	float: left;
+	text-align: center;
+}
+
+.slidethumb:hover {
+	border: #5F9EA0 1px solid;
+	background-color: #f5f5f5;
+	background-image: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+	color: #333;
+	cursor: pointer;
+	font-size: 13px;
+	line-height: 18px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+}
+
+.slidethumb img {
+	margin: 0 5px 0 0;
+	object-fit: scale-down;
+	object-position: center;
+	max-width: none;
+	height: 100%;
+	width: 100%;
+}
+
+
+/*------------------------
+	Interface with tabs
+--------------------------*/
+
+.tab {
+	min-height: 500px;
+	overflow-y: auto;
+	position: relative;
+}
+
+.menulink {
+	float: left;
+	padding: 5px 10px;
+	margin: 5px 5px 0 5px;
+	cursor: pointer;
+	color: #a6a6a6;
+	background: #eee;
+	border-radius: 5px 5px 0 0;
+	border: 1px solid #ddd;
+	position: relative;
+	z-index: 1;
+}
+
+.tablinkdesc {
+	text-align: center;
+	font-size: 10px;
+	color: #a6a6a6;
+	line-height: 10px;
+}
+
+.menulink:hover, .menulink.current {
+	color: #000;
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+.menulink + .clr {
+	clear: both;
+	border-top: 1px solid #ddd;
+	margin-bottom: 5px;
+	position: relative;
+	z-index: 0;
+	top: -1px;
+	visibility: visible;
+}
+
+.tab input[type="radio"], input[type="checkbox"] {
+	border: none;
+}
+
+.styleswizard_options {
+	/*margin-top: 20px;*/
+}
+
+.styleswizard label {
+	display: inline-block !important;
+	width: 150px;
+}
+
+.styleswizard input {
+	display: inline-block !important;
+	max-width: 100px;
+	border-radius: 0;
+	height: 18px;
+}
+
+.styleswizard span {
+	margin-right: 3px;
+}
+
+.styleswizard img {
+	vertical-align: 0;
+}
+
+.styleswizard label.radiobutton {
+	display: inline-block !important;
+	width: 30px;
+	padding: 3px;
+	margin: 0 1px 0 0;
+	text-align: center;
+	background: #f1f1f1;
+	border: 1px solid #bbb;
+	height: 20px;
+	vertical-align: top;
+	min-width: 30px;
+}
+
+.btn-group > .btn {
+	vertical-align: top;
+}
+
+.btn-group > input + .btn {
+	margin-left: -1px;
+}
+
+.styleswizard input[type=radio].radiobutton {
+	display: none !important;
+}
+
+.styleswizard input[type=radio].radiobutton:checked + label {
+	background: #2e9fd2; /* Old browsers */
+	background: -moz-linear-gradient(top,  #2e9fd2 0%, #21759b 100%, #21759b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e9fd2), color-stop(100%,#21759b), color-stop(100%,#21759b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #2e9fd2 0%,#21759b 100%,#21759b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #2e9fd2 0%,#21759b 100%,#21759b 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #2e9fd2 0%,#21759b 100%,#21759b 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #2e9fd2 0%,#21759b 100%,#21759b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e9fd2', endColorstr='#21759b',GradientType=0 ); /* IE6-9 */
+	color: #FFFFFF;
+	border: 1px solid #21759b ;
+}
+
+.ckrow {
+	margin-top: 3px;
+}
+
+.ckheading {
+	color: #2EA2CC;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.ckheading:first-child {
+	margin-top: 0px;
+}
+
+/*------------------------
+	Wait icon
+--------------------------*/
+
+.ckwait {
+	background-image: url(../images/ajax-loader.gif) !important;
+	min-height: 16px;
+}
+
+.ckwait.black {
+	background-image: url(../images/ajax-loader-black.gif) !important;
+}
+
+.ckbutton.blackhover:hover .ckwait {
+	background-image: url(../images/ajax-loader-black.gif) !important;
+}
+
+/*------------------------
+	Presets
+--------------------------*/
+
+.themethumb, .layoutthumb {
+	float: left;
+	padding: 3px;
+	margin: 3px;
+	border: 1px solid transparent;
+	cursor: pointer;
+	width: 110px;
+}
+
+.themethumbimg {
+	width: 110px;
+	height: 100px;
+	overflow: hidden;
+}
+
+.themethumb:hover, .themethumb.selected,
+.layoutthumb:hover, .layoutthumb.selected {
+	border: 1px solid #3399ff;
+	box-shadow: 0 0 5px #3399ff;
+}
+.themename, .layoutname {
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2px;
+	border-top: 1px solid #ddd;
+}
+
+.mobilemenuck .mobilemenuck-item > div.accordionmobileck + .mobilemenuck-submenu {
+    display: none !important;
+}
+
+.mobilemenuck .mobilemenuck-item > div.accordionmobileck.open + .mobilemenuck-submenu {
+	display: block !important;
+}
+
+.ckordering {
+	cursor: move;
+}
+
+.ckplaceholder {
+	padding: 10px;
+	min-height: 60px;
+	background: #2EA2CC;
+}
+
+#ckitemslist .ckplaceholder td {
+	padding: 10px;
+	min-height: 60px;
+	background: #2EA2CC !important;
+}

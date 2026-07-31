@@ -1,0 +1,97 @@
+/**
+ * @copyright	Copyright (C) 2016 Cedric KEIFLIN alias ced1870
+ * http://www.joomlack.fr
+ * @license		GNU/GPL
+ * */
+
+#ckeditor {
+	display: none;
+}
+
+.ckfile {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	/*overflow: hidden;*/
+	margin: 5px;
+	box-shadow: #888 0 0 5px;
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #fff;
+	/*cursor: move;*/
+	position: relative;
+}
+
+.ckfileedition {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.4);
+	height: 40px;
+	box-sizing: border-box;
+	padding: 7px;
+	text-align: center;
+}
+
+.ckfileeditmodal {
+	display: none;
+}
+
+.ckfileeditmodal.ckshow {
+	bottom: 20px;
+	display: block;
+	left: 20px;
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	z-index: 9999;
+}
+
+#labelseditor div.ckrow {
+	background: #fff none repeat scroll 0 0;
+	border: 1px solid #f0f0f0;
+	border-radius: 3px;
+	margin: 3px 5px;
+}
+
+#labelseditor div.col {
+	margin: 4px 10px;
+	width: 18%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#labelseditor div.col * {
+	max-width: 100%;
+}
+
+#labelseditor div.col.ckmove {
+	width: 80px;
+}
+
+#labelseditor div:not(.ckheader) div.col.ckmove {
+	background: url('images/arrow_move.gif') center center no-repeat;
+	height: 80px;
+	cursor: move;
+}
+
+#labelseditor .ckheader div.col {
+	font-weight: bold;
+}
+
+#labelseditor .ckheader div.col.ckimage {
+	width: 80px;
+}
+
+.ckboxmodal-body > div {
+	max-height: 100%;
+	overflow: auto;
+}
+
+#labelseditor div.col.ckfile {
+	background-size: cover;
+	height: 80px;
+	width: 80px;
+}

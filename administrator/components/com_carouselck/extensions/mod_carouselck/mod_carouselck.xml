@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.0"
+	client="site"
+	method="upgrade">
+	<name>Carousel CK</name>
+	<author>Cédric KEIFLIN</author>
+	<creationDate>Avril 2012</creationDate>
+	<copyright>Cédric KEIFLIN</copyright>
+	<license>GNU/GPL 3 http://www.gnu.org/licenses/gpl.html</license>
+	<authorEmail>ced1870@gmail.com</authorEmail>
+	<authorUrl>https://www.joomlack.fr</authorUrl>
+	<version>2.3.0</version>
+	<description>CAROUSELCK_XML_DESCRIPTION</description>
+	<files>
+		<folder>language</folder>
+		<folder>themes</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>legacy.php</filename>
+		<filename>logo_carouselck.png</filename>
+		<filename module="mod_carouselck">mod_carouselck.php</filename>
+		<filename>mod_carouselck.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_carouselck.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_carouselck.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.mod_carouselck.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.mod_carouselck.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field 
+					name="carouselckinterface"
+					type="carouselckinterface"
+					/>
+				<field 
+					name="infos" 
+					type="ckinfo"
+					/>
+				<field
+					name="infospro"
+					type="cklight"
+					/>
+				<field
+					name="joomlackproducts"
+					type="ckproducts"
+					/>
+				<field
+					name="v1tov2migration"
+					type="ckmigrate"
+					/>
+			</fieldset>
+			<fieldset name="editionfieldset" label="CAROUSELCK_SOURCE_FIELDSET_LABEL" addfieldpath="/administrator/components/com_carouselck/elements">
+				<field
+					name="source"
+					type="cksource"
+					default="slidesmanager"
+					label="CAROUSELCK_SLIDESSOURCE_LABEL"
+					description="CAROUSELCK_SLIDESSOURCE_DESC"
+					icon="image_link.png"
+				>
+					<option value="slidesmanager">CAROUSELCK_SOURCE_SLIDESMANAGER</option>
+				</field>
+				<field
+					name="slides"
+					type="ckslidesmanager"
+					label="CAROUSELCK_SLIDES_LABEL"
+					default="[{|qq|imgname|qq|:|qq|media/com_carouselck/images/slides/bridge.jpg|qq|,|qq|imgcaption|qq|:|qq|This bridge is very long|qq|,|qq|imgtitle|qq|:|qq|This is a bridge|qq|,|qq|imgthumb|qq|:|qq|../media/com_carouselck/images/slides/bridge.jpg|qq|,|qq|imglink|qq|:|qq||qq|,|qq|imgtarget|qq|:|qq|default|qq|,|qq|imgalignment|qq|:|qq|default|qq|,|qq|imgvideo|qq|:|qq||qq|,|qq|slidearticleid|qq|:|qq||qq|,|qq|slidearticlename|qq|:|qq||qq|,|qq|imgtime|qq|:|qq||qq|},{|qq|imgname|qq|:|qq|media/com_carouselck/images/slides/road.jpg|qq|,|qq|imgcaption|qq|:|qq|Drive to the sun and have fun|qq|,|qq|imgtitle|qq|:|qq|On the road again|qq|,|qq|imgthumb|qq|:|qq|../media/com_carouselck/images/slides/road.jpg|qq|,|qq|imglink|qq|:|qq||qq|,|qq|imgtarget|qq|:|qq|default|qq|,|qq|imgalignment|qq|:|qq|default|qq|,|qq|imgvideo|qq|:|qq||qq|,|qq|slidearticleid|qq|:|qq||qq|,|qq|slidearticlename|qq|:|qq||qq|,|qq|imgtime|qq|:|qq||qq|},{|qq|imgname|qq|:|qq|media/com_carouselck/images/slides2/sea.jpg|qq|,|qq|imgcaption|qq|:|qq||qq|,|qq|imgtitle|qq|:|qq||qq|,|qq|imgthumb|qq|:|qq|../media/com_carouselck/images/slides2/sea.jpg|qq|,|qq|imglink|qq|:|qq||qq|,|qq|imgtarget|qq|:|qq|default|qq|,|qq|imgalignment|qq|:|qq|default|qq|,|qq|imgvideo|qq|:|qq||qq|,|qq|slidearticleid|qq|:|qq||qq|,|qq|slidearticlename|qq|:|qq||qq|,|qq|imgtime|qq|:|qq||qq|}]"
+					filter="raw"
+					showon="source:slidesmanager"
+				/>
+				<field
+					name="spacerfolderimport"
+					type="ckspacer"
+					style="title"
+					label="CAROUSELCK_SPACERFOLDERIMPORT_LABEL"
+					showon="source:slidesmanager"
+				/>
+				<field
+					name="fromfoldername"
+					type="hidden"
+				/>
+				<field
+					name="slidesfromfolder"
+					type="hidden"
+				/>
+			</fieldset>
+			<fieldset name="optionsfieldset" label="CAROUSELCK_OPTIONS_FIELDSET_LABEL" >
+				<field
+					name="spacerdisplay"
+					type="ckspacer"
+					label="CAROUSELCK_DISPLAY_OPTIONS_LABEL"
+					style="title"
+					/>
+				<field
+					name="theme"
+					type="ckfolderlist"
+					directory="modules/mod_carouselck/themes"
+					hide_none="true"
+					hide_default="true"
+					label="CAROUSELCK_THEME_LABEL"
+					description="CAROUSELCK_THEME_DESC"
+					icon="photo.png" />
+				<field
+					name="styles"
+					type="ckstyle"
+					label="CAROUSELCK_SELECT_STYLE_LABEL"
+					description="CAROUSELCK_SELECT_STYLE_DESC"
+					icon="palette.png"
+					default=""
+					/>
+				<field
+					name="skin"
+					type="cklist"
+					default="carouselck_black_skin"
+					label="CAROUSELCK_SKIN_LABEL"
+					description="CAROUSELCK_SKIN_DESC"
+					icon="palette.png" >
+					<option value="carouselck_amber_skin">amber</option>
+					<option value="carouselck_ash_skin">ash</option>
+					<option value="carouselck_azure_skin">azure</option>
+					<option value="carouselck_beige_skin">beige</option>
+					<option value="carouselck_black_skin">black</option>
+					<option value="carouselck_blue_skin">blue</option>
+					<option value="carouselck_brown_skin">brown</option>
+					<option value="carouselck_burgundy_skin">burgundy</option>
+					<option value="carouselck_charcoal_skin">charcoal</option>
+					<option value="carouselck_chocolate_skin">chocolate</option>
+					<option value="carouselck_coffee_skin">coffee</option>
+					<option value="carouselck_cyan_skin">cyan</option>
+					<option value="carouselck_fuchsia_skin">fuchsia</option>
+					<option value="carouselck_gold_skin">gold</option>
+					<option value="carouselck_green_skin">green</option>
+					<option value="carouselck_grey_skin">grey</option>
+					<option value="carouselck_indigo_skin">indigo</option>
+					<option value="carouselck_khaki_skin">khaki</option>
+					<option value="carouselck_lime_skin">lime</option>
+					<option value="carouselck_magenta_skin">magenta</option>
+					<option value="carouselck_maroon_skin">maroon</option>
+					<option value="carouselck_orange_skin">orange</option>
+					<option value="carouselck_olive_skin">olive</option>
+					<option value="carouselck_pink_skin">pink</option>
+					<option value="carouselck_pistachio_skin">pistachio</option>
+					<option value="carouselck_pink_skin">pink</option>
+					<option value="carouselck_red_skin">red</option>
+					<option value="carouselck_tangerine_skin">tangerine</option>
+					<option value="carouselck_turquoise_skin">turquoise</option>
+					<option value="carouselck_violet_skin">violet</option>
+					<option value="carouselck_white_skin">white</option>
+					<option value="carouselck_yellow_skin">yellow</option>
+				</field>
+
+				<field
+					name="slideshowstylesillustration"
+					type="ckbackground"
+					background="carouselck_styles.png"
+					styles="height:264px;width:550px;"
+				/>
+				<field
+					name="wrapheight"
+					type="cktext"
+					default="40"
+					label="CAROUSELCK_WRAPHEIGHT_LABEL"
+					description="CAROUSELCK_WRAPHEIGHT_DESC"
+					suffix="%"
+				/>
+				<field
+					name="imageheight"
+					type="cktext"
+					default="62"
+					label="CAROUSELCK_IMAGEHEIGHT_LABEL"
+					description="CAROUSELCK_IMAGEHEIGHT_DESC"
+					suffix="%"
+				/>
+				<field
+					name="imagesratio"
+					type="cktext"
+					default="0.72"
+					label="CAROUSELCK_IMAGERATIO_LABEL"
+					description="CAROUSELCK_IMAGERATIO_DESC"
+				/>
+				
+				<field
+					name="navigation"
+					type="ckradio"
+					default="2"
+					label="CAROUSELCK_NAVIGATION_LABEL"
+					description="CAROUSELCK_NAVIGATION_DESC"
+					class="btn-group"
+					icon="resultset_next.png"
+				>
+					<option value="2">CAROUSELCK_NAVIGATION_HOVER</option>
+					<option value="1">CAROUSELCK_NAVIGATION_ALWAYS</option>
+					<option value="0">CAROUSELCK_NAVIGATION_NONE</option>
+				</field>
+				<field
+					name="playPause"
+					type="ckradio"
+					default="1"
+					label="CAROUSELCK_PLAYPAUSE_LABEL"
+					description="CAROUSELCK_PLAYPAUSE_DESC"
+					class="btn-group"
+					showon="navigation!:0"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="pagination"
+					type="ckradio"
+					default="1"
+					label="CAROUSELCK_PAGINATION_LABEL"
+					description="CAROUSELCK_PAGINATION_DESC"
+					class="btn-group"
+					icon="edit-list-order.png"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="thumbnails"
+					type="ckradio"
+					default="1"
+					label="CAROUSELCK_THUMBNAILS_LABEL"
+					description="CAROUSELCK_THUMBNAILS_DESC"
+					class="btn-group"
+					icon="pictures.png"
+					showon="pagination:1"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="thumbnailwidth"
+					type="cktext"
+					default="100"
+					label="CAROUSELCK_THUMBNAILWIDTH_LABEL"
+					description="CAROUSELCK_THUMBNAILWIDTH_DESC"
+					suffix="px"
+					showon="pagination:1[AND]thumbnails:1"
+				/>
+
+				<field
+					name="thumbnailheight"
+					type="cktext"
+					default="75"
+					label="CAROUSELCK_THUMBNAILHEIGHT_LABEL"
+					description="CAROUSELCK_THUMBNAILHEIGHT_DESC"
+					suffix="px"
+					showon="pagination:1[AND]thumbnails:1"
+				/>
+				<field
+					name="displayorder"
+					type="cklist"
+					default="normal"
+					label="CAROUSELCK_DISPLAYORDER_LABEL"
+					description="CAROUSELCK_DISPLAYORDER_DESC"
+					icon="control_repeat.png"
+				>
+					<option value="normal">CAROUSELCK_DISPLAYORDER_NORMAL</option>
+					<option value="shuffle">CAROUSELCK_DISPLAYORDER_SHUFFLE</option>
+				</field>
+				<field
+					name="limitslides"
+					type="cktext"
+					default=""
+					label="CAROUSELCK_NUMBER_SLIDES_LABEL"
+					description="CAROUSELCK_NUMBER_SLIDES_DESC"
+					icon="application_cascade.png"
+					
+					/>
+				<field
+					name="spacertext"
+					type="ckspacer"
+					label="CAROUSELCK_TEXT_OPTIONS_LABEL"
+					style="title"
+					/>
+				<field
+					name="usecaption"
+					type="ckradio"
+					label="CAROUSELCK_USECAPTION_LABEL"
+					description="CAROUSELCK_USECAPTION_DESC"
+					icon="switch.png"
+					class="btn-group"
+					default="1"
+					>
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				<field
+					name="usetitle"
+					type="ckradio"
+					label="CAROUSELCK_USETITLE_LABEL"
+					description="CAROUSELCK_USETITLE_DESC"
+					icon="switch.png"
+					class="btn-group"
+					default="1"
+					showon="usecaption:1"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="usecaptiondesc"
+					type="ckradio"
+					label="CAROUSELCK_USECAPTIONDESC_LABEL"
+					description="CAROUSELCK_USECAPTIONDESC_DESC"
+					icon="switch.png"
+					class="btn-group"
+					default="1"
+					showon="usecaption:1"
+					>
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				<field
+					name="textlength"
+					type="cktext"
+					default=""
+					label="CAROUSELCK_ARTICLELENGTH_LABEL"
+					description="CAROUSELCK_ARTICLELENGTH_DESC"
+					icon="text_signature.png"
+					showon="usecaption:1"
+				/>
+				<field
+					name="striptags"
+					type="ckradio"
+					default="1"
+					label="CAROUSELCK_STRIPTAGS_LABEL"
+					description="CAROUSELCK_STRIPTAGS_DESC"
+					icon="html.png"
+					class="btn-group"
+					showon="usecaption:1"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="spacerlink"
+					type="ckspacer"
+					label="CAROUSELCK_LINK_OPTIONS_LABEL"
+					style="title"
+					/>
+				<field
+					name="linkposition"
+					type="cklist"
+					label="CAROUSELCK_LINK_POSITION_LABEL"
+					description="CAROUSELCK_LINK_POSITION_DESC"
+					icon="link.png"
+					default="fullslide"
+					>
+					<option value="fullslide">CAROUSELCK_LINK_FULLSLIDE</option>
+					<option value="title">CAROUSELCK_LINK_TITLE</option>
+					<option value="button">CAROUSELCK_LINK_BUTTON</option>
+					<option value="none">CAROUSELCK_NONE</option>
+				</field>
+				<field
+					name="linkbuttontext"
+					type="cktext"
+					label="CAROUSELCK_LINK_BUTTON_TEXT_LABEL"
+					description="CAROUSELCK_LINK_BUTTON_TEXT_DESC"
+					icon="text_signature.png"
+					default="CAROUSELCK_LINK_BUTTON_TEXT"
+					showon="linkposition:button"
+					/>
+				<field
+					name="linkbuttonclass"
+					type="cktext"
+					label="CAROUSELCK_LINK_BUTTON_CLASS_LABEL"
+					description="CAROUSELCK_LINK_BUTTON_CLASS_DESC"
+					icon="css.png"
+					default="btn"
+					showon="linkposition:button"
+					/>
+				<field
+					name="linkautoimage"
+					type="ckradio"
+					label="CAROUSELCK_LINK_AUTOIMAGE_LABEL"
+					description="CAROUSELCK_LINK_AUTOIMAGE_DESC"
+					icon="link_add.png"
+					default="0"
+					class="btn-group"
+					showon="linkposition!:none"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="linktarget"
+					type="cklist"
+					label="CAROUSELCK_LINK_TARGET_LABEL"
+					description="CAROUSELCK_LINK_TARGET_DESC"
+					icon="link_go.png"
+					default="_parent"
+					showon="linkposition!:none"
+					>
+					<option value="_parent">CAROUSELCK_LINK_SAME_WINDOW</option>
+					<option value="_blank">CAROUSELCK_LINK_NEW_WINDOW</option>
+					<option value="lightbox">CAROUSELCK_LIGHTBOX</option>
+				</field>
+				<field
+					name="spacerlightbox"
+					type="ckspacer"
+					label="CAROUSELCK_LIGHTBOX_SPACER_LABEL"
+					style="title"
+					/>
+				<field
+					name="lightbox"
+					label="CAROUSELCK_LIGHTBOX_LABEL"
+					description="CAROUSELCK_LIGHTBOX_DESC"
+					type="cklist"
+					icon="magnifier_zoom_in.png"
+					default="mediaboxck"
+				>
+					<option value="mediaboxck">CAROUSELCK_MEDIABOXCK</option>
+					<option value="other">CAROUSELCK_OTHER</option>
+					<option value="none">CAROUSELCK_NONE</option>
+				</field>
+				<field
+					name="lightboxattrib"
+					type="cktext"
+					label="CAROUSELCK_LIGHTBOX_ATTRIB_LABEL"
+					description="CAROUSELCK_LIGHTBOX_ATTRIB_DESC"
+					icon="text_signature.png"
+					default="rel"
+					showon="lightbox:other"
+					/>
+				<field
+					name="lightboxattribvalue"
+					type="cktext"
+					label="CAROUSELCK_LIGHTBOX_ATTRIB_VALUE_LABEL"
+					description="CAROUSELCK_LIGHTBOX_ATTRIB_VALUE_DESC"
+					icon="text_signature.png"
+					default="lightbox"
+					showon="lightbox:other"
+					/>
+				<field
+					name="lightboxcaption"
+					label="CAROUSELCK_LIGHTBOXCAPTION_LABEL"
+					description="CAROUSELCK_LIGHTBOXCAPTION_DESC"
+					type="cklist"
+					icon="switch.png"
+					default="caption"
+					showon="lightbox:mediaboxck"
+				>
+					<option value="caption">CAROUSELCK_LIGHTBOXCAPTION</option>
+					<option value="title">CAROUSELCK_LIGHTBOXTITLE</option>
+					<option value="captionandtitle">CAROUSELCK_LIGHTBOXCAPTIONANDTITLE</option>
+				</field>
+				<field
+					name="lightboxgroupalbum"
+					label="CAROUSELCK_LIGHTBOXGROUPALBUM_LABEL"
+					description="CAROUSELCK_LIGHTBOXGROUPALBUM_DESC"
+					type="cklist"
+					icon="images.png"
+					default="0"
+					showon="lightbox:mediaboxck"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="effects" label="CAROUSELCK_EFFECTS_OPTIONS">
+				<field
+					name="duration"
+					type="cktext"
+					default="600"
+					label="CAROUSELCK_DURATION_LABEL"
+					description="CAROUSELCK_DURATION_DESC"
+					icon="hourglass.png"
+					suffix="ms" />
+				<field
+					name="time"
+					type="cktext"
+					default="7000"
+					label="CAROUSELCK_TIME_LABEL"
+					description="CAROUSELCK_TIME_DESC"
+					icon="hourglass.png"
+					suffix="ms" />
+				<field
+					name="captioneffect"
+					type="cklist"
+					default="random"
+					label="CAROUSELCK_CAPTIONEFFECT_LABEL"
+					description="CAROUSELCK_CAPTIONEFFECT_DESC"
+					icon="application_view_gallery.png"
+					styles=""
+				>
+					<option value="moveFromLeft">moveFromLeft</option>
+					<option value="moveFromRight">moveFromRight</option>
+					<option value="moveFromTop">moveFromTop</option>
+					<option value="moveFromBottom">moveFromBottom</option>
+					<option value="fadeIn">fadeIn</option>
+					<option value="none">none</option>
+				</field>
+				<field
+					name="captionduration"
+					type="cktext"
+					default="600"
+					label="CAROUSELCK_CAPTIONDURATION_LABEL"
+					description="CAROUSELCK_CAPTIONDURATION_DESC"
+					icon="hourglass.png"
+					suffix="ms" />
+				<field
+					name="autoAdvance"
+					type="ckradio"
+					default="1"
+					label="CAROUSELCK_AUTOADVANCE_LABEL"
+					description="CAROUSELCK_AUTOADVANCE_DESC"
+					icon="control_play.png"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			<fieldset name="responsiveoptions" label="CAROUSELCK_RESPONSIVE">
+				<field 
+					name="mobileimagespacer"
+					label="CAROUSELCK_MOBILEIMAGE_SPACER_LABEL"
+					type="ckspacer"
+					style="title"
+				/>
+				<field
+					name="usemobileimage"
+					type="ckradio"
+					default="0"
+					label="CAROUSELCK_USEMOBILEIMAGE_LABEL"
+					description="CAROUSELCK_USEMOBILEIMAGE_DESC"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="mobileimageresolution"
+					type="cktext"
+					default="640"
+					label="CAROUSELCK_MOBILEIMAGERESOLUTION_LABEL"
+					description="CAROUSELCK_MOBILEIMAGERESOLUTION_DESC"
+					icon="width.png"
+					suffix="px" 
+				/>
+				<field
+					name="captionresponsiveckspacer"
+					type="ckspacer"
+					label="CAROUSELCK_SPACER_RESPONSIVE"
+					style="title"
+				/>
+				<field
+					name="usecaptionresponsive"
+					type="cklist"
+					label="CAROUSELCK_USERESPONSIVECAPTION_LABEL"
+					description="CAROUSELCK_USERESPONSIVECAPTION_DESC"
+					icon="ipod.png"
+					class="btn-group"
+					default="2"
+					>
+						<option value="2">CAROUSELCK_RESOLUTION_ADAPTATIVE</option>
+						<option value="1">CAROUSELCK_RESOLUTION_STEP</option>
+						<option value="0">JNO</option>
+				</field>
+				<field
+					name="captionresponsiveresolution"
+					type="cktext"
+					label="CAROUSELCK_RESPONSIVERESOLUTION_LABEL"
+					description="CAROUSELCK_RESPONSIVERESOLUTION_DESC"
+					icon="width.png"
+					default="480"
+					showon="usecaptionresponsive!:0"
+				/>
+				<field
+					name="captionresponsivefontsize"
+					type="cktext"
+					label="CAROUSELCK_RESPONSIVEFONTSIZE_LABEL"
+					description="CAROUSELCK_RESPONSIVEFONTSIZE_DESC"
+					icon="style.png"
+					default="0.6em"
+					showon="usecaptionresponsive:1"
+				/>
+				<field
+					name="captionresponsivehidecaption"
+					type="ckradio"
+					label="CAROUSELCK_RESPONSIVEHIDECAPTION_LABEL"
+					description="CAROUSELCK_RESPONSIVEHIDECAPTION_DESC"
+					icon="style_delete.png"
+					class="btn-group"
+					default="0"
+					showon="usecaptionresponsive!:0"
+					>
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="loadjqueryeasing"
+					type="ckradio"
+					default="1"
+					label="CAROUSELCK_LOADJQUERYEASING_LABEL"
+					description="CAROUSELCK_LOADJQUERYEASING_DESC"
+					icon="page_white_wrench.png"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field
+					name="autocreatethumbs"
+					type="ckradio"
+					default="1"
+					label="CAROUSELCK_AUTOCREATETHUMBS_LABEL"
+					description="CAROUSELCK_AUTOCREATETHUMBS_DESC"
+					icon="application_cascade.png"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="usethumbstype"
+					type="ckradio"
+					default="mini"
+					label="CAROUSELCK_THUMBSTYPE_LABEL"
+					description="CAROUSELCK_THUMBSTYPE_DESC"
+					class="btn-group"
+				>
+					<option value="mini">CAROUSELCK_THUMBSTYPE_MINI</option>
+					<option value="normal">CAROUSELCK_THUMBSTYPE_NORMAL</option>
+				</field>
+				<field
+					name="fixhtml"
+					type="ckradio"
+					default="0"
+					label="CAROUSELCK_FIXHTML_LABEL"
+					description="CAROUSELCK_FIXHTML_DESC"
+					icon="bug_delete.png"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="imageforseo"
+					type="ckradio"
+					default="0"
+					label="CAROUSELCK_IMAGEFORSEO_LABEL"
+					description="CAROUSELCK_IMAGEFORSEO_DESC"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="loadinline"
+					type="ckradio"
+					default="0"
+					label="CAROUSELCK_LOAD_INLINE_LABEL"
+					description="CAROUSELCK_LOAD_INLINE_DESC"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+					icon="layout.png" />
+
+				<field
+					name="moduleclass_sfx"
+					type="cktext"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					icon="text_signature.png" />
+
+				<field
+					name="cache"
+					type="cklist"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC" >
+					<option	value="1">JGLOBAL_USE_GLOBAL</option>
+					<option	value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="cktext"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					icon="hourglass.png"
+					suffix="min" />
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid" >
+					<option	value="itemid"></option>
+				</field>
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

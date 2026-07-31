@@ -1,0 +1,1035 @@
+/*** compatibilite beez en position-12 ***/
+#top {overflow: visible !important; }
+
+/**************************
+*
+*	GENERAL
+*
+**************************/
+.carouselck_wrap .carouselck_images > a,.carouselck_wrap .carouselck_images > a:hover {
+	background: url(../images/blank.gif) !important;
+}
+
+.carouselck_wrap a,.carouselck_wrap a:hover, .carouselck_wrap img, 
+.carouselck_wrap ol, .carouselck_wrap ul, .carouselck_wrap li,
+.carouselck_wrap table, .carouselck_wrap tbody, .carouselck_wrap tfoot, .carouselck_wrap thead, .carouselck_wrap tr, .carouselck_wrap th, .carouselck_wrap td
+.carouselck_thumbs_wrap a, .carouselck_thumbs_wrap img, 
+.carouselck_thumbs_wrap ol, .carouselck_thumbs_wrap ul, .carouselck_thumbs_wrap li,
+.carouselck_thumbs_wrap table, .carouselck_thumbs_wrap tbody, .carouselck_thumbs_wrap tfoot, .carouselck_thumbs_wrap thead, .carouselck_thumbs_wrap tr, .carouselck_thumbs_wrap th, .carouselck_thumbs_wrap td {
+	background: none;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	list-style: none
+}
+.carouselck_wrap {
+	position: relative;
+	z-index: 100;
+	padding: 0;
+}
+.carouselck_wrap img {
+	max-width: none!important;
+}
+
+.carouselck_images {
+	height: 100%;
+}
+
+.carouselck_images img {
+
+}
+
+.carouselck_wrap {
+	width: 100%;
+}
+
+.carouselck_src {
+	display: none;
+}
+
+.carouselck_link {
+	display: none;
+	height: 100%;
+	text-decoration: none;
+	position: relative;
+	z-index: 9999;
+	background: url(../images/blank.gif) !important;
+}
+
+.carouselck_videos {
+	pointer-events: none;
+}
+
+a.carouselck-button {
+	display: inline-block;
+}
+
+.carouselck_loader {
+    background: #fff url(../images/carouselck-loader.gif) no-repeat center;
+	background: rgba(255, 255, 255, 0.9) url(../images/carouselck-loader.gif) no-repeat center;
+	border: 1px solid #ffffff;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	height: 36px;
+	left: 50%;
+	overflow: hidden;
+	position: absolute;
+	margin: -18px 0 0 -18px;
+	top: 50%;
+	width: 36px;
+	z-index: 3;
+}
+
+.carouselck_bar {
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 3;
+}
+.carouselck_thumbs_wrap.carouselck_left .carouselck_bar, .carouselck_thumbs_wrap.carouselck_right .carouselck_bar {
+	height: 100%;
+	position: absolute;
+	width: auto;
+}
+.carouselck_thumbs_wrap.carouselck_bottom .carouselck_bar, .carouselck_thumbs_wrap.carouselck_top .carouselck_bar {
+	height: auto;
+	position: absolute;
+	width: 100%;
+}
+.carouselck_nav_cont {
+	height: 65px;
+	overflow: hidden;
+	position: absolute;
+	right: 9px;
+	top: 15px;
+	width: 120px;
+	z-index: 4;
+}
+.carouselck_captions {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.carouselck_caption {
+	bottom: 0;
+	display: block;
+	position: absolute;
+	width: 100%;
+	/*height: 100%;*/
+	z-index: 1000;
+	margin: 0;
+}
+.carouselck_caption > div {
+	padding: 10px 20px;
+	height: 100%;
+	line-height: 120%;
+	font-size: 12px;
+	/*width: 30%;*/
+	box-sizing: border-box;
+}
+
+.carouselck_caption_title {
+	margin: 5px 0;
+	font-size: 150%;
+}
+
+.carouselck_caption_desc {
+	font-size: 100%;
+}
+
+.carouselck_prevThumbs {
+	bottom: 4px;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	top: 4px;
+	visibility: hidden;
+	width: 30px;
+	z-index: 10;
+}
+.carouselck_prevThumbs div {
+	background: url(../images/carouselck_skins.png) no-repeat -160px 0;
+	display: block;
+	height: 40px;
+	margin-top: -20px;
+	position: absolute;
+	top: 50%;
+	width: 30px;
+}
+.carouselck_nextThumbs {
+	bottom: 4px;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 4px;
+	visibility: hidden;
+	width: 30px;
+	z-index: 10;
+}
+.carouselck_nextThumbs div {
+	background: url(../images/carouselck_skins.png) no-repeat -190px 0;
+	display: block;
+	height: 40px;
+	margin-top: -20px;
+	position: absolute;
+	top: 50%;
+	width: 30px;
+}
+.carouselck_command_wrap .hideNav {
+	display: none;
+}
+.carouselck_command_wrap {
+	left: 0;
+	position: relative;
+	right:0;
+	z-index: 4;
+}
+
+.carouselck_pag {
+	/*position: absolute;*/
+	bottom: 0;
+	right: 10px;
+	z-index: 9999;
+}
+
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	height: auto !important;
+	height: 28px;
+}
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	display: inline-block;
+	float: none !important;
+	float:left;/*overflow:hidden;*/
+	height: 16px;
+	margin: 20px 5px;
+	position: relative;
+	/*text-align: left;*/
+	text-indent: 9999px;
+	width: 16px;
+}
+
+.carouselck_commands_emboss .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav {
+	-moz-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+	-webkit-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+	box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+}
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav > span {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	height: 8px;
+	left: 4px;
+	overflow: hidden;
+	position: absolute;
+	top: 4px;
+	width: 8px;
+}
+.carouselck_commands_emboss .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav:hover > span {
+	-moz-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+	-webkit-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+	box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+}
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav.carouselckcurrent > span {
+	-moz-box-shadow: 0;
+	-webkit-box-shadow: 0;
+	box-shadow: 0;
+}
+.carouselck_pag_ul .carouselck_pag_nav img {
+	display: none;
+	position: absolute;
+}
+.carouselck_pag_ul .thumb_arrow {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid;
+	top: 0;
+	left: 50%;
+	margin-left: -4px;
+	position: absolute;
+}
+.carouselck_prev, .carouselck_next, .carouselck_commands {
+	cursor: pointer;
+	height: 40px;
+	margin-top: -20px;
+	position: absolute;
+	top: 50%;
+	width: 40px;
+	z-index: 999;
+}
+.carouselck_prev {
+	left: 0;
+}
+.carouselck_prev > span {
+	background: url(../images/carouselck_skins.png) no-repeat 0 0;
+	display: block;
+	height: 40px;
+	width: 40px;
+}
+.carouselck_next {
+	right: 0;
+}
+.carouselck_next > span {
+	background: url(../images/carouselck_skins.png) no-repeat -40px 0;
+	display: block;
+	height: 40px;
+	width: 40px;
+}
+
+.carouselck_commands {
+	right: 41px;
+}
+
+.carouselck_commands > .carouselck_play {
+	background: url(../images/carouselck_skins.png) no-repeat -80px 0;
+	height: 40px;
+	width: 40px;
+}
+
+.carouselck_commands > .carouselck_stop {
+	background: url(../images/carouselck_skins.png) no-repeat -120px 0;
+	display: block;
+	height: 40px;
+	width: 40px;
+}
+
+.carouselck_thumbs_cont {
+	-webkit-border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	bottom: -200px; /* a supprimer */
+}
+
+.carouselck_commands_emboss .carouselck_thumbs_cont {
+	-moz-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+	-webkit-box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+	box-shadow:
+		0px 1px 0px rgba(255,255,255,1),
+		inset 0px 1px 1px rgba(0,0,0,0.2);
+}
+
+.carouselck_thumbs_cont > div {
+	float: left;
+	width: 100%;
+}
+
+.carouselck_thumbs_cont ul {
+	overflow: hidden;
+	padding: 3px 4px 8px;
+	position: relative;
+	text-align: center;
+}
+
+.carouselck_thumbs_cont ul li {
+	display: inline;
+	padding: 0 4px;
+}
+
+.carouselck_thumbs_cont ul li > img {
+	border: 1px solid;
+	cursor: pointer;
+	margin-top: 5px;
+	vertical-align:bottom;
+}
+
+.carouselck_clear {
+	display: block;
+	clear: both;
+}
+
+.showIt {
+	display: none;
+}
+
+.carouselck_clear {
+	clear: both;
+	display: block;
+	height: 1px;
+	margin: -1px 0 25px;
+	position: relative;
+}
+.carouselck_caption {
+	display: block;
+	position: absolute;
+	color: #fff;
+}
+.carouselck_caption > div {
+	background: #000;
+	background: rgba(0, 0, 0, 0.5);
+}
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav {
+	background: #b7b7b7;
+}
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav:hover > span {
+	background: #b7b7b7;
+}
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav.carouselckcurrent > span {
+	background: #434648;
+}
+.carouselck_pag_ul .carouselck_pag_nav img {
+	border: 4px solid #e6e6e6;
+	-moz-box-shadow: 0px 3px 6px rgba(0,0,0,.5);
+	-webkit-box-shadow: 0px 3px 6px rgba(0,0,0,.5);
+	box-shadow: 0px 3px 6px rgba(0,0,0,.5);
+}
+.carouselck_pag_ul .thumb_arrow {
+    border-top-color: #e6e6e6;
+}
+.carouselck_prevThumbs, .carouselck_nextThumbs, .carouselck_prev, .carouselck_next, .carouselck_commands, .carouselck_thumbs_cont {
+	background: #d8d8d8;
+	background: rgba(216, 216, 216, 0.85);
+}
+.carouselck_wrap .carouselck_pag .carouselck_pag_ul .carouselck_pag_nav {
+	background: #b7b7b7;
+}
+.carouselck_thumbs_cont ul li > img {
+	border-color: 1px solid #000;
+}
+/*AMBER SKIN*/
+.carouselck_amber_skin .carouselck_prevThumbs div {
+	background-position: -160px -160px;
+}
+.carouselck_amber_skin .carouselck_nextThumbs div {
+	background-position: -190px -160px;
+}
+.carouselck_amber_skin .carouselck_prev > span {
+	background-position: 0 -160px;
+}
+.carouselck_amber_skin .carouselck_next > span {
+	background-position: -40px -160px;
+}
+.carouselck_amber_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -160px;
+}
+.carouselck_amber_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -160px;
+}
+/*ASH SKIN*/
+.carouselck_ash_skin .carouselck_prevThumbs div {
+	background-position: -160px -200px;
+}
+.carouselck_ash_skin .carouselck_nextThumbs div {
+	background-position: -190px -200px;
+}
+.carouselck_ash_skin .carouselck_prev > span {
+	background-position: 0 -200px;
+}
+.carouselck_ash_skin .carouselck_next > span {
+	background-position: -40px -200px;
+}
+.carouselck_ash_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -200px;
+}
+.carouselck_ash_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -200px;
+}
+/*AZURE SKIN*/
+.carouselck_azure_skin .carouselck_prevThumbs div {
+	background-position: -160px -240px;
+}
+.carouselck_azure_skin .carouselck_nextThumbs div {
+	background-position: -190px -240px;
+}
+.carouselck_azure_skin .carouselck_prev > span {
+	background-position: 0 -240px;
+}
+.carouselck_azure_skin .carouselck_next > span {
+	background-position: -40px -240px;
+}
+.carouselck_azure_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -240px;
+}
+.carouselck_azure_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -240px;
+}
+/*BEIGE SKIN*/
+.carouselck_beige_skin .carouselck_prevThumbs div {
+	background-position: -160px -120px;
+}
+.carouselck_beige_skin .carouselck_nextThumbs div {
+	background-position: -190px -120px;
+}
+.carouselck_beige_skin .carouselck_prev > span {
+	background-position: 0 -120px;
+}
+.carouselck_beige_skin .carouselck_next > span {
+	background-position: -40px -120px;
+}
+.carouselck_beige_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -120px;
+}
+.carouselck_beige_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -120px;
+}
+/*BLACK SKIN*/
+.carouselck_black_skin .carouselck_prevThumbs div {
+	background-position: -160px -40px;
+}
+.carouselck_black_skin .carouselck_nextThumbs div {
+	background-position: -190px -40px;
+}
+.carouselck_black_skin .carouselck_prev > span {
+	background-position: 0 -40px;
+}
+.carouselck_black_skin .carouselck_next > span {
+	background-position: -40px -40px;
+}
+.carouselck_black_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -40px;
+}
+.carouselck_black_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -40px;
+}
+/*BLUE SKIN*/
+.carouselck_blue_skin .carouselck_prevThumbs div {
+	background-position: -160px -280px;
+}
+.carouselck_blue_skin .carouselck_nextThumbs div {
+	background-position: -190px -280px;
+}
+.carouselck_blue_skin .carouselck_prev > span {
+	background-position: 0 -280px;
+}
+.carouselck_blue_skin .carouselck_next > span {
+	background-position: -40px -280px;
+}
+.carouselck_blue_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -280px;
+}
+.carouselck_blue_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -280px;
+}
+/*BROWN SKIN*/
+.carouselck_brown_skin .carouselck_prevThumbs div {
+	background-position: -160px -320px;
+}
+.carouselck_brown_skin .carouselck_nextThumbs div {
+	background-position: -190px -320px;
+}
+.carouselck_brown_skin .carouselck_prev > span {
+	background-position: 0 -320px;
+}
+.carouselck_brown_skin .carouselck_next > span {
+	background-position: -40px -320px;
+}
+.carouselck_brown_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -320px;
+}
+.carouselck_brown_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -320px;
+}
+/*BURGUNDY SKIN*/
+.carouselck_burgundy_skin .carouselck_prevThumbs div {
+	background-position: -160px -360px;
+}
+.carouselck_burgundy_skin .carouselck_nextThumbs div {
+	background-position: -190px -360px;
+}
+.carouselck_burgundy_skin .carouselck_prev > span {
+	background-position: 0 -360px;
+}
+.carouselck_burgundy_skin .carouselck_next > span {
+	background-position: -40px -360px;
+}
+.carouselck_burgundy_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -360px;
+}
+.carouselck_burgundy_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -360px;
+}
+/*CHARCOAL SKIN*/
+.carouselck_charcoal_skin .carouselck_prevThumbs div {
+	background-position: -160px -400px;
+}
+.carouselck_charcoal_skin .carouselck_nextThumbs div {
+	background-position: -190px -400px;
+}
+.carouselck_charcoal_skin .carouselck_prev > span {
+	background-position: 0 -400px;
+}
+.carouselck_charcoal_skin .carouselck_next > span {
+	background-position: -40px -400px;
+}
+.carouselck_charcoal_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -400px;
+}
+.carouselck_charcoal_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -400px;
+}
+/*CHOCOLATE SKIN*/
+.carouselck_chocolate_skin .carouselck_prevThumbs div {
+	background-position: -160px -440px;
+}
+.carouselck_chocolate_skin .carouselck_nextThumbs div {
+	background-position: -190px -440px;
+}
+.carouselck_chocolate_skin .carouselck_prev > span {
+	background-position: 0 -440px;
+}
+.carouselck_chocolate_skin .carouselck_next > span {
+	background-position: -40px -440px;
+}
+.carouselck_chocolate_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -440px;
+}
+.carouselck_chocolate_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -440px	;
+}
+/*COFFEE SKIN*/
+.carouselck_coffee_skin .carouselck_prevThumbs div {
+	background-position: -160px -480px;
+}
+.carouselck_coffee_skin .carouselck_nextThumbs div {
+	background-position: -190px -480px;
+}
+.carouselck_coffee_skin .carouselck_prev > span {
+	background-position: 0 -480px;
+}
+.carouselck_coffee_skin .carouselck_next > span {
+	background-position: -40px -480px;
+}
+.carouselck_coffee_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -480px;
+}
+.carouselck_coffee_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -480px	;
+}
+/*CYAN SKIN*/
+.carouselck_cyan_skin .carouselck_prevThumbs div {
+	background-position: -160px -520px;
+}
+.carouselck_cyan_skin .carouselck_nextThumbs div {
+	background-position: -190px -520px;
+}
+.carouselck_cyan_skin .carouselck_prev > span {
+	background-position: 0 -520px;
+}
+.carouselck_cyan_skin .carouselck_next > span {
+	background-position: -40px -520px;
+}
+.carouselck_cyan_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -520px;
+}
+.carouselck_cyan_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -520px	;
+}
+/*FUCHSIA SKIN*/
+.carouselck_fuchsia_skin .carouselck_prevThumbs div {
+	background-position: -160px -560px;
+}
+.carouselck_fuchsia_skin .carouselck_nextThumbs div {
+	background-position: -190px -560px;
+}
+.carouselck_fuchsia_skin .carouselck_prev > span {
+	background-position: 0 -560px;
+}
+.carouselck_fuchsia_skin .carouselck_next > span {
+	background-position: -40px -560px;
+}
+.carouselck_fuchsia_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -560px;
+}
+.carouselck_fuchsia_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -560px	;
+}
+/*GOLD SKIN*/
+.carouselck_gold_skin .carouselck_prevThumbs div {
+	background-position: -160px -600px;
+}
+.carouselck_gold_skin .carouselck_nextThumbs div {
+	background-position: -190px -600px;
+}
+.carouselck_gold_skin .carouselck_prev > span {
+	background-position: 0 -600px;
+}
+.carouselck_gold_skin .carouselck_next > span {
+	background-position: -40px -600px;
+}
+.carouselck_gold_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -600px;
+}
+.carouselck_gold_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -600px	;
+}
+/*GREEN SKIN*/
+.carouselck_green_skin .carouselck_prevThumbs div {
+	background-position: -160px -640px;
+}
+.carouselck_green_skin .carouselck_nextThumbs div {
+	background-position: -190px -640px;
+}
+.carouselck_green_skin .carouselck_prev > span {
+	background-position: 0 -640px;
+}
+.carouselck_green_skin .carouselck_next > span {
+	background-position: -40px -640px;
+}
+.carouselck_green_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -640px;
+}
+.carouselck_green_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -640px	;
+}
+/*GREY SKIN*/
+.carouselck_grey_skin .carouselck_prevThumbs div {
+	background-position: -160px -680px;
+}
+.carouselck_grey_skin .carouselck_nextThumbs div {
+	background-position: -190px -680px;
+}
+.carouselck_grey_skin .carouselck_prev > span {
+	background-position: 0 -680px;
+}
+.carouselck_grey_skin .carouselck_next > span {
+	background-position: -40px -680px;
+}
+.carouselck_grey_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -680px;
+}
+.carouselck_grey_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -680px	;
+}
+/*INDIGO SKIN*/
+.carouselck_indigo_skin .carouselck_prevThumbs div {
+	background-position: -160px -720px;
+}
+.carouselck_indigo_skin .carouselck_nextThumbs div {
+	background-position: -190px -720px;
+}
+.carouselck_indigo_skin .carouselck_prev > span {
+	background-position: 0 -720px;
+}
+.carouselck_indigo_skin .carouselck_next > span {
+	background-position: -40px -720px;
+}
+.carouselck_indigo_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -720px;
+}
+.carouselck_indigo_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -720px	;
+}
+/*KHAKI SKIN*/
+.carouselck_khaki_skin .carouselck_prevThumbs div {
+	background-position: -160px -760px;
+}
+.carouselck_khaki_skin .carouselck_nextThumbs div {
+	background-position: -190px -760px;
+}
+.carouselck_khaki_skin .carouselck_prev > span {
+	background-position: 0 -760px;
+}
+.carouselck_khaki_skin .carouselck_next > span {
+	background-position: -40px -760px;
+}
+.carouselck_khaki_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -760px;
+}
+.carouselck_khaki_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -760px	;
+}
+/*LIME SKIN*/
+.carouselck_lime_skin .carouselck_prevThumbs div {
+	background-position: -160px -800px;
+}
+.carouselck_lime_skin .carouselck_nextThumbs div {
+	background-position: -190px -800px;
+}
+.carouselck_lime_skin .carouselck_prev > span {
+	background-position: 0 -800px;
+}
+.carouselck_lime_skin .carouselck_next > span {
+	background-position: -40px -800px;
+}
+.carouselck_lime_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -800px;
+}
+.carouselck_lime_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -800px	;
+}
+/*MAGENTA SKIN*/
+.carouselck_magenta_skin .carouselck_prevThumbs div {
+	background-position: -160px -840px;
+}
+.carouselck_magenta_skin .carouselck_nextThumbs div {
+	background-position: -190px -840px;
+}
+.carouselck_magenta_skin .carouselck_prev > span {
+	background-position: 0 -840px;
+}
+.carouselck_magenta_skin .carouselck_next > span {
+	background-position: -40px -840px;
+}
+.carouselck_magenta_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -840px;
+}
+.carouselck_magenta_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -840px	;
+}
+/*MAROON SKIN*/
+.carouselck_maroon_skin .carouselck_prevThumbs div {
+	background-position: -160px -880px;
+}
+.carouselck_maroon_skin .carouselck_nextThumbs div {
+	background-position: -190px -880px;
+}
+.carouselck_maroon_skin .carouselck_prev > span {
+	background-position: 0 -880px;
+}
+.carouselck_maroon_skin .carouselck_next > span {
+	background-position: -40px -880px;
+}
+.carouselck_maroon_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -880px;
+}
+.carouselck_maroon_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -880px	;
+}
+/*ORANGE SKIN*/
+.carouselck_orange_skin .carouselck_prevThumbs div {
+	background-position: -160px -920px;
+}
+.carouselck_orange_skin .carouselck_nextThumbs div {
+	background-position: -190px -920px;
+}
+.carouselck_orange_skin .carouselck_prev > span {
+	background-position: 0 -920px;
+}
+.carouselck_orange_skin .carouselck_next > span {
+	background-position: -40px -920px;
+}
+.carouselck_orange_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -920px;
+}
+.carouselck_orange_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -920px	;
+}
+/*OLIVE SKIN*/
+.carouselck_olive_skin .carouselck_prevThumbs div {
+	background-position: -160px -1080px;
+}
+.carouselck_olive_skin .carouselck_nextThumbs div {
+	background-position: -190px -1080px;
+}
+.carouselck_olive_skin .carouselck_prev > span {
+	background-position: 0 -1080px;
+}
+.carouselck_olive_skin .carouselck_next > span {
+	background-position: -40px -1080px;
+}
+.carouselck_olive_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -1080px;
+}
+.carouselck_olive_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -1080px	;
+}
+/*PINK SKIN*/
+.carouselck_pink_skin .carouselck_prevThumbs div {
+	background-position: -160px -960px;
+}
+.carouselck_pink_skin .carouselck_nextThumbs div {
+	background-position: -190px -960px;
+}
+.carouselck_pink_skin .carouselck_prev > span {
+	background-position: 0 -960px;
+}
+.carouselck_pink_skin .carouselck_next > span {
+	background-position: -40px -960px;
+}
+.carouselck_pink_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -960px;
+}
+.carouselck_pink_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -960px	;
+}
+/*PISTACHIO SKIN*/
+.carouselck_pistachio_skin .carouselck_prevThumbs div {
+	background-position: -160px -1040px;
+}
+.carouselck_pistachio_skin .carouselck_nextThumbs div {
+	background-position: -190px -1040px;
+}
+.carouselck_pistachio_skin .carouselck_prev > span {
+	background-position: 0 -1040px;
+}
+.carouselck_pistachio_skin .carouselck_next > span {
+	background-position: -40px -1040px;
+}
+.carouselck_pistachio_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -1040px;
+}
+.carouselck_pistachio_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -1040px	;
+}
+/*PINK SKIN*/
+.carouselck_pink_skin .carouselck_prevThumbs div {
+	background-position: -160px -80px;
+}
+.carouselck_pink_skin .carouselck_nextThumbs div {
+	background-position: -190px -80px;
+}
+.carouselck_pink_skin .carouselck_prev > span {
+	background-position: 0 -80px;
+}
+.carouselck_pink_skin .carouselck_next > span {
+	background-position: -40px -80px;
+}
+.carouselck_pink_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -80px;
+}
+.carouselck_pink_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -80px;
+}
+/*RED SKIN*/
+.carouselck_red_skin .carouselck_prevThumbs div {
+	background-position: -160px -1000px;
+}
+.carouselck_red_skin .carouselck_nextThumbs div {
+	background-position: -190px -1000px;
+}
+.carouselck_red_skin .carouselck_prev > span {
+	background-position: 0 -1000px;
+}
+.carouselck_red_skin .carouselck_next > span {
+	background-position: -40px -1000px;
+}
+.carouselck_red_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -1000px;
+}
+.carouselck_red_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -1000px	;
+}
+/*TANGERINE SKIN*/
+.carouselck_tangerine_skin .carouselck_prevThumbs div {
+	background-position: -160px -1120px;
+}
+.carouselck_tangerine_skin .carouselck_nextThumbs div {
+	background-position: -190px -1120px;
+}
+.carouselck_tangerine_skin .carouselck_prev > span {
+	background-position: 0 -1120px;
+}
+.carouselck_tangerine_skin .carouselck_next > span {
+	background-position: -40px -1120px;
+}
+.carouselck_tangerine_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -1120px;
+}
+.carouselck_tangerine_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -1120px	;
+}
+/*TURQUOISE SKIN*/
+.carouselck_turquoise_skin .carouselck_prevThumbs div {
+	background-position: -160px -1160px;
+}
+.carouselck_turquoise_skin .carouselck_nextThumbs div {
+	background-position: -190px -1160px;
+}
+.carouselck_turquoise_skin .carouselck_prev > span {
+	background-position: 0 -1160px;
+}
+.carouselck_turquoise_skin .carouselck_next > span {
+	background-position: -40px -1160px;
+}
+.carouselck_turquoise_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -1160px;
+}
+.carouselck_turquoise_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -1160px	;
+}
+/*VIOLET SKIN*/
+.carouselck_violet_skin .carouselck_prevThumbs div {
+	background-position: -160px -1200px;
+}
+.carouselck_violet_skin .carouselck_nextThumbs div {
+	background-position: -190px -1200px;
+}
+.carouselck_violet_skin .carouselck_prev > span {
+	background-position: 0 -1200px;
+}
+.carouselck_violet_skin .carouselck_next > span {
+	background-position: -40px -1200px;
+}
+.carouselck_violet_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -1200px;
+}
+.carouselck_violet_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -1200px	;
+}
+/*WHITE SKIN*/
+.carouselck_white_skin .carouselck_prevThumbs div {
+	background-position: -160px -80px;
+}
+.carouselck_white_skin .carouselck_nextThumbs div {
+	background-position: -190px -80px;
+}
+.carouselck_white_skin .carouselck_prev > span {
+	background-position: 0 -80px;
+}
+.carouselck_white_skin .carouselck_next > span {
+	background-position: -40px -80px;
+}
+.carouselck_white_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -80px;
+}
+.carouselck_white_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -80px;
+}
+/*YELLOW SKIN*/
+.carouselck_yellow_skin .carouselck_prevThumbs div {
+	background-position: -160px -1240px;
+}
+.carouselck_yellow_skin .carouselck_nextThumbs div {
+	background-position: -190px -1240px;
+}
+.carouselck_yellow_skin .carouselck_prev > span {
+	background-position: 0 -1240px;
+}
+.carouselck_yellow_skin .carouselck_next > span {
+	background-position: -40px -1240px;
+}
+.carouselck_yellow_skin .carouselck_commands > .carouselck_play {
+	background-position: -80px -1240px;
+}
+.carouselck_yellow_skin .carouselck_commands > .carouselck_stop {
+	background-position: -120px -1240px	;
+}
+

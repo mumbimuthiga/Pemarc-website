@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.7.0" client="site" method="upgrade">
+	<name>Article Show</name>
+	<author>olwebdesign</author>
+	<creationDate>Aug 17, 2019</creationDate>
+	<copyright>Copyright (C) http://www.olwebdesign.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@olwebdesign.com</authorEmail>
+	<authorUrl>www.olwebdesign.com</authorUrl>
+	<version>4.1.8</version>	
+		<description>	
+	<![CDATA[<link href="../modules/mod_ol_articleshow/assets/css/admin.css" rel="stylesheet" type="text/css" media="all" />
+	<h1>Article Show module free version</h1>
+	<div style="margin:0 0 0 10px; font-size:15px;">Article Show Module from <a href="http://www.olwebdesign.com" target="_blank">olwebdesign.com</a>. All styles are vailable in <a target='_blank' href='https://www.olwebdesign.com/joomla-extensions/article-show-joomla-module.html'>pro version</a>.</div>
+	<h3>Userful links</h3>
+	<ul><li><a target='_blank' href='https://www.olwebdesign.com/joomla-templates.html'>Joomla templates</a></li>
+	<li><a target='_blank' href='https://www.olwebdesign.com/joomla-extensions.html'>Joomla extensions</a></li>
+	<li><a target='_blank' href='https://www.olwebdesign.com/contact-us.html'>Report bug</a></li></ul>		
+		<div class="footer_review">
+				Like this extensions? <a href="https://extensions.joomla.org/extension/news-display/articles-display/article-show/" target="_blank">Leave a review on JED</a>
+				<a class="stars" href="https://extensions.joomla.org/extension/news-display/articles-display/article-show/" target="_blank">
+					<span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span>
+				</a>
+			</div>
+			
+		]]></description>
+	<files>
+		<filename module="mod_ol_articleshow">mod_ol_articleshow.php</filename>
+		<filename>index.html</filename>
+		<folder>assets</folder>
+		<folder>core</folder>
+		<folder>tmpl</folder>
+		<folder>field</folder>
+	</files>
+	<updateservers>
+  		<server type="extension" priority="1" name="Article Show"><![CDATA[https://www.olwebdesign.com/updates/mod_ol_articleshow.xml]]></server>
+  	</updateservers>
+	<config>
+		<fields name="params">
+			<fieldset name="settings" label="Settings">	
+				
+				<field name="mx_rtl" type="list" default="false" label="RTL" description="Use RTL for right to left languages">
+					<option value="false">No</option>
+					<option value="true">Yes</option>
+				</field>									
+				<field name="get_style" type="list" default="default" label="Style" description="Select a style" >
+					<option value="default">default</option>
+					<option value="style1" disabled="true">Style 1 (pro)</option>
+					<option value="style2" disabled="true">Style 2 (pro)</option>
+					<option value="style3" disabled="true">Style 3 (pro)</option>
+					<option value="style4" disabled="true">Style 4 (pro)</option>
+					<option value="style5" disabled="true">Style 5 (pro)</option>
+					<option value="style6" disabled="true">Style 6 (pro)</option>
+					<option value="style7" disabled="true">Style 7 (pro)</option>
+					<option value="style8" disabled="true">Style 8 (pro)</option>
+					<option value="style9" disabled="true">Style 9 (pro)</option>
+					<option value="style10" disabled="true">Style 10 (pro)</option>
+					<option value="style11" disabled="true">Style 11 (pro)</option>
+					<option value="style12" disabled="true">Style 12 (pro)</option>
+					<option value="style13" disabled="true">Style 13 (pro)</option>
+					<option value="style14" disabled="true">Style 14 (pro)</option>
+					<option value="style15" disabled="true">Style 15 (pro)</option>
+					<option value="style16" disabled="true">Style 16 (pro)</option>
+				</field>
+							
+				<field name="get_effects" type="list" default="0" label="Fade effect" description="Use fade effect on hover (pro)"  disabled="true">
+				  <option value="1">JYES</option>
+				  <option value="0">JNO</option>
+				</field>	
+																
+				<field name="dataRev" type="list" default="0" label="Reveal effect (pro)" description="Use reveal on scroll down effect (pro)"  disabled="true">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>				
+				<field name="customstyle" type="list" default="0" label="Custom color" description="Use Custom color">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+								
+				<field name="btx_color" type="color" format="rgba" default="" label="Color" description="Select the Color" showon="customstyle:1"  />
+								
+				<field name="container_fix" type="text" default="7" label="Item distance" description="Distance betwin each team members." />		
+				<field name="show_font" type="list" default="0" label="Font awesome" description="Use font awesome in case of icons issues">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="get_source" type="radio" class="btn-group btn-group-yesno"  filter="integer" default="1" label="Source" description="Select a source" >
+					<option value="1">Articles</option>
+					<option value="2">Custom Items (pro)</option>
+				</field>
+				<field name="sl_items" type="subform" formsource="modules/mod_ol_articleshow/field/items.xml" class="advancedSelect" min="1" max="50" multiple="true" layout="joomla.form.field.subform.repeatable" groupByFieldset="true" label="Items(s)" description="Add Items(s) to display" showon="get_source:2" />
+					
+				<field  type="separator" text="Article settings" addfieldpath="/modules/mod_ol_articleshow/assets/elements/"  showon="get_source:1" />
+				<field name="catid" type="category" extension="com_content" multiple="true" layout="joomla.form.field.list-fancy-select" filter="intarray" size="10" default="" label="Select Category" description="Select category" showon="get_source:1" />
+				<field name="show_child_category_articles" type="radio" class="btn-group" default="0" label="Child Category Articles" description="Include or Exclude Articles from Child Categories." showon="get_source:1">
+                    <option value="1">Include</option>
+                    <option value="0">Exclude
+                    </option>
+                </field>  
+                <field name="levels" type="text" default="1" label="Category Depth" description="The number of child category levels to return." showon="get_source:1" />                              
+                <field name="tag" type="tag" label="JTAG" mode="nested" multiple="true" filter="intarray" class="multipleTags" showon="get_source:1" />
+				<field name="show_front" type="radio" default="show" class="btn-group" label="Featured Articles" description="Select to Show, Hide, or Only display Featured Articles." showon="get_source:1">
+                    <option value="show">Show</option>
+                    <option value="hide">Hide</option>
+                    <option value="only">Only</option>
+                </field>
+                <field name="article_ordering" type="list" default="a.title" label="Article Field to Order By" description="Select which field you would like Articles to be ordered by. Featured Ordering should only be used when Filtering Option for Featured Articles is set to 'Only'." showon="get_source:1">
+                    <option value="a.ordering">Article Manager Order</option>
+                    <option value="fp.ordering">Featured Articles Order</option>
+                    <option value="a.hits">Hits</option>
+                    <option value="a.title">Title</option>
+                    <option value="a.id">ID</option>
+                    <option value="a.alias">Alias</option>
+                    <option value="a.created">Created Date</option>
+                    <option value="modified">Modified Date</option>
+                    <option value="publish_up">Start Publishing Date</option>
+                    <option value="a.publish_down">Finish Publishing Date</option>
+					<option value="rand()">Random</option>
+                </field>
+                <field name="article_ordering_direction" type="list" default="ASC" label="Ordering Direction" description="Select the direction you would like Articles to be ordered by." showon="get_source:1">
+                    <option value="DESC">Descending</option>
+                    <option value="ASC">Ascending</option>
+                </field>
+                <field name="count" type="text" default="10" label="Count" description="The number of articles to display. The default value of 0 will display all articles." showon="get_source:1" />
+				<field name="link_target" type="list" default="_self" label="Open Link"	description="The Type shows when you click on the link" showon="get_source:1">
+					<option value="_blank">New Window</option>
+					<option value="_self">Same Window</option>
+					<option value="_windowopen">Popup window</option>
+				</field>
+												
+				<field name="triggerevents" type="radio" label="Custom Fields" description="Trigger Custom Fields" class="btn-group" default="1" filter="integer" showon="get_source:1" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field> 
+				<field name="cat_title_display" type="radio" default="1" class="btn-group" label="Category Title" description="Display title of category" showon="get_source:1">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="title_display" type="radio" default="1" class="btn-group" label="Item Title" description="Display title of item" showon="get_source:1">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="item_title_max_characs" type="text" default="25" label="Title Maxlength" description="Max length of title by characters. Enter value 0 if you want to show all. Please enter integer number >= 0." showon="get_source:1" />
+				<field name="item_desc_display" type="radio" default="1" class="btn-group" label="Description display" description="Display description of item" showon="get_source:1">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="item_desc_max_characs" type="text" default="200" label="Description Maxlength" description="Max length of description by characters. Enter value 0 if you want to show all. Please enter integer number >= 0." showon="get_source:1" />
+				<field name="author_display" type="radio" default="1" class="btn-group" label="Author display" description="Display Author of item" showon="get_source:1">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="item_date_display" type="radio" default="1" class="btn-group" label="Date display" description="Date display of item" showon="get_source:1">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>				
+				<field name="show_date_format" type="combo" default="Y-m-d" label="Date Format" description="Select Date Format" showon="get_source:1">
+                    <option value="l, d F Y">l, d F Y</option>
+                    <option value="l, d F Y H:i">l, d F Y H:i</option>
+                    <option value="d F Y">d F Y</option>
+                    <option value="Y-m-d">Y-m-d</option>
+                    <option value="Y-m-d H:i">Y-m-d H:i</option>
+                    <option value="Y-m-d H:i:s">Y-m-d H:i:s</option>
+                    <option value="y-m-d">y-m-d</option>
+                    <option value="Y">Y</option>
+                    <option value="d M Y">d M Y</option>
+                </field>
+				<field name="item_readmore_display" class="btn-group" type="radio" default="1" label="Show Read More" description="Show Read More" showon="get_source:1">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="item_readmore_text"  type="text" default="Read more" label="Read More Text" description="Please enter the read more text in here" showon="get_source:1" />
+				<field type="separator" text="Images settings" showon="get_source:1" />
+				<field name="imgol_from_image_intro" label="From Image Intro" class="btn-group" description="Get Images From Image Intro" type="radio" default="1" showon="get_source:1">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+			     <field name="imgol_from_image_fulltext" label="From Image Fulltext" class="btn-group" description="Get Images From Image Fulltext" type="radio" default="1" showon="get_source:1">
+                     <option value="1">Yes</option>
+                     <option value="0">No</option>
+                </field> 
+                <field name="imgol_from_inline_introtext" label="From Inline Introtext" class="btn-group" description="Get Images From Inline Introtext" type="radio" default="1" showon="get_source:1">
+                     <option value="1">Yes</option>
+                     <option value="0">No</option>
+                </field>
+                <field name="imgol_from_inline_fulltext" label="From Inline Fulltext" class="btn-group" description="Get images From Inline Fulltext" type="radio" default="1" showon="get_source:1">
+                     <option value="1">Yes</option>
+                     <option value="0">No</option>
+                </field>
+                <field name="imgol_order" type="text" default="image_intro, image_fulltext, inline_introtext, inline_fulltext" label="Order to Get" description="Order to Get Image" showon="get_source:1" />
+                <field name="imgol_function" type="list" label="Resize Mode" default="resize_fill" description="Resize Mode" showon="get_source:1">
+                     <option value="none">None</option>
+                     <option value="resize_center">Center</option>
+                     <option value="resize_fill">Fill</option>
+                     <option value="resize_fit">Fit</option>
+                     <option value="resize_stretch">Stretch</option>
+                </field>
+                <field name="imgol_type" type="list" default="" label="Output Format" description="Output Format after Resizing" showon="get_source:1">
+                     <option value="">Default</option>
+                     <option value="1">GIF</option>
+                     <option value="2">JPEG</option>
+                     <option value="3">PNG</option>
+                </field>
+                <field name="imgol_transparency" label="Keep Transparency" class="btn-group" description="Keep Transparency. Applied for GIF/PNG format" type="radio" default="1" showon="get_source:1">
+                     <option value="1">Yes</option>
+                     <option value="0">No</option>
+                </field>
+                <field name="imgol_width" type="text" default="1300" label="Image Width" description="Image Width" showon="get_source:1" />
+                <field name="imgol_height" type="text" default="650" label="Image Height" description="Image Height" showon="get_source:1" />
+                <field name="imgol_placeholder_path" type="text" default="modules/mod_ol_articleshow/assets/images/noimage.jpg" label="Placeholder Path (or Url)" description="The Path (or URL) of Default Image" showon="get_source:1"/>      
+			</fieldset>
+
+			<fieldset name="slider_settings" label="Slider Settings">
+			<field name="image_width" type="list" default="4" label="Items" description="Number of items displayed">
+					<option value="1">1 Item</option>
+					<option value="2">2 Items</option>
+					<option value="3">3 Items</option>
+					<option value="4">4 Items</option>
+					<option value="5">5 Items</option>
+					<option value="6">6 Items</option>
+					<option value="7">7 Items</option>
+					<option value="8">8 Items</option>
+					<option value="9">9 Items</option>
+					<option value="10">10 Items</option>
+				</field>
+				<field name="image_width_tabl" type="list" default="3" label="Items (Tab Landscape)" description="Items (Tab Landscape)">
+					<option value="1">1 Item</option>
+					<option value="2">2 Items</option>
+					<option value="3">3 Items</option>
+					<option value="4">4 Items</option>
+					<option value="5">5 Items</option>
+					<option value="6">6 Items</option>
+					<option value="7">7 Items</option>
+					<option value="8">8 Items</option>
+					<option value="9">9 Items</option>
+					<option value="10">10 Items</option>
+				</field>
+				<field name="image_width_tabp" type="list" default="3" label="Items (Tab Portrait)" description="Items (Tab Portrait)">
+					<option value="1">1 Item</option>
+					<option value="2">2 Items</option>
+					<option value="3">3 Items</option>
+					<option value="4">4 Items</option>
+					<option value="5">5 Items</option>
+					<option value="6">6 Items</option>
+					<option value="7">7 Items</option>
+					<option value="8">8 Items</option>
+					<option value="9">9 Items</option>
+					<option value="10">10 Items</option>
+				</field>
+				<field name="image_width_mobl" type="list" default="2" label="Items (Mob Landscape)" description="Items (Mob Landscape)">
+					<option value="1">1 Item</option>
+					<option value="2">2 Items</option>
+					<option value="3">3 Items</option>
+					<option value="4">4 Items</option>
+					<option value="5">5 Items</option>
+					<option value="6">6 Items</option>
+					<option value="7">7 Items</option>
+					<option value="8">8 Items</option>
+					<option value="9">9 Items</option>
+					<option value="10">10 Items</option>
+				</field>
+				<field name="image_width_mobp" type="list" default="1" label="Items (Mob Portrait)" description="Items (Mob Portrait)">
+					<option value="1">1 Item</option>
+					<option value="2">2 Items</option>
+					<option value="3">3 Items</option>
+					<option value="4">4 Items</option>
+					<option value="5">5 Items</option>
+					<option value="6">6 Items</option>
+					<option value="7">7 Items</option>
+					<option value="8">8 Items</option>
+					<option value="9">9 Items</option>
+					<option value="10">10 Items</option>
+				</field>	
+				<field name="autoplay" type="list" default="true" label="Auto play" description="Auto play">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+				<field name="autoplay-timeout" type="list" default="5000" label="Sliding Time" description="Sliding Time">
+					<option value="1000">1 sec</option>
+					<option value="2000">2 sec</option>
+					<option value="3000">3 sec</option>
+					<option value="4000">4 sec</option>
+					<option value="5000">5 sec</option>
+					<option value="6000">6 sec</option>
+					<option value="7000">7 sec</option>
+					<option value="8000">8 sec</option>
+					<option value="9000">9 sec</option>
+					<option value="10000">10 sec</option>
+					<option value="15000">15 sec</option>
+					<option value="20000">20 sec</option>
+				</field>
+				<field name="autoplay-speed" type="list" default="1000" label="Sliding speed" description="Sliding speed">
+					<option value="500">0.5 sec</option>
+					<option value="600">0.6 sec</option>
+					<option value="700">0.7 sec</option>
+					<option value="800">0.8 sec</option>
+					<option value="900">0.9 sec</option>
+					<option value="1000">1 sec</option>
+					<option value="2000">2 sec</option>
+					<option value="3000">3 sec</option>
+				</field>
+				<field name="autoplay-hover-pause" type="list" default="true" label="Auto play hover pause" description="Auto play hover pause">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+				<field name="dataLoop" type="list" default="true" label="Loop" description="Loop">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+				<field name="dataNav" type="list" default="true" label="Navigation" description="Show Navigation">
+					<option value="true">Yes</option>
+					<option value="false">No</option>
+				</field>
+				<field name="navPosit" type="list" default="owl-nav" label="Navigation position" description="Next prev buttom position">
+					<option value="nav-bottom-right">Bottom right</option>
+					<option value="nav-outside-top">Top right</option>
+					<option value="owl-nav">Center</option>
+				</field>
+				<field name="navStyle" type="list" default="" label="Navigation Style" description="Navigation Style">
+					<option value="nav-light">Light</option>
+					<option value="">Dark</option>
+				</field>
+				<field name="navRounded" type="list" default="" label="Nav Buttons Rounded" description="Navigation Buttons Rounded">
+					<option value="nav-rounded">Yes</option>
+					<option value="">No</option>
+				</field>
+								
+				<field name="loadjquery" type="radio" class="btn-group btn-group-yesno" default="0" label="Load Jquery" description="Load Jquery">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+			<fieldset name="custom" label="Custom CSS" >	
+				<field name="css_code" type="textarea" filter="safehtml" default="" label="Css code" description="Here add css code" />					
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="layout" type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+								<field name="owncache" type="list" default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" >
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING
+					</option>
+				</field>
+				<field name="cache_time" type="text" default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

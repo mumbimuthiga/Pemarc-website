@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>mod_sliderck</name>
+	<creationDate>September 2016</creationDate>
+	<copyright>Copyright (C) 2016. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<author>Cedric Keiflin</author>
+	<authorEmail>ced1870@gmail.com</authorEmail>
+	<authorUrl>http://www.joomlack.fr</authorUrl>
+	<version>2.5.1</version>
+	<description>MOD_SLIDERCK_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_sliderck">mod_sliderck.php</filename>
+		<filename>helper.php</filename>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_sliderck.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_sliderck.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.mod_sliderck.sys.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.mod_sliderck.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_sliderck/elements">
+				<field
+					name="sliderckinterface"
+					type="sliderckinterface"
+					/>
+				<field 
+					name="infos" 
+					type="ckinfo"
+					/>
+				<field
+					name="infospro"
+					type="cklight"
+					/>
+				<field
+					name="joomlackproducts"
+					type="ckproducts"
+					/>
+			</fieldset>
+			<fieldset name="editionfieldset" label="MOD_SLIDERCK_SOURCE_FIELDSET_LABEL">
+				<field
+					name="source"
+					type="cksource"
+					label="MOD_SLIDERCK_SELECT_SOURCE_LABEL"
+					description="MOD_SLIDERCK_SELECT_SOURCE_DESC"
+					icon="image_link.png"
+					default="slidesmanager"
+				>
+					<option value="slidesmanager">SLIDERCK_SOURCE_SLIDESMANAGER</option>
+				</field>
+				<field
+					name="sourceproonly"
+					type="ckproonly"
+					label="SLIDERCK_SLIDESSOURCE_PRO_ONLY"
+				/>
+				<field
+					name="slides"
+					type="ckslidesmanager"
+					label="SLIDERCK_SLIDES_LABEL"
+					default="[{|qq|imgname|qq|:|qq|media/com_sliderck/images/slides/slide1.jpg|qq|,|qq|imgcaption|qq|:|qq|A small description text|qq|,|qq|imgtitle|qq|:|qq|Welcome in the demo|qq|,|qq|imgthumb|qq|:|qq|../media/com_sliderck/images/slides/slide1.jpg|qq|,|qq|imglink|qq|:|qq||qq|,|qq|imgtarget|qq|:|qq|default|qq|,|qq|imgalignment|qq|:|qq|default|qq|,|qq|imgvideo|qq|:|qq||qq|,|qq|slidearticleid|qq|:|qq||qq|,|qq|slidearticlename|qq|:|qq||qq|,|qq|imgtime|qq|:|qq||qq|},{|qq|imgname|qq|:|qq|media/com_sliderck/images/slides/slide2.jpg|qq|,|qq|imgcaption|qq|:|qq|Write what you want here|qq|,|qq|imgtitle|qq|:|qq|Another demo|qq|,|qq|imgthumb|qq|:|qq|../media/com_sliderck/images/slides/slide2.jpg|qq|,|qq|imglink|qq|:|qq||qq|,|qq|imgtarget|qq|:|qq|default|qq|,|qq|imgalignment|qq|:|qq|default|qq|,|qq|imgvideo|qq|:|qq||qq|,|qq|slidearticleid|qq|:|qq||qq|,|qq|slidearticlename|qq|:|qq||qq|,|qq|imgtime|qq|:|qq||qq|},{|qq|imgname|qq|:|qq|media/com_sliderck/images/slides/slide3.jpg|qq|,|qq|imgcaption|qq|:|qq||qq|,|qq|imgtitle|qq|:|qq||qq|,|qq|imgthumb|qq|:|qq|../media/com_sliderck/images/slides/slide3.jpg|qq|,|qq|imglink|qq|:|qq||qq|,|qq|imgtarget|qq|:|qq|default|qq|,|qq|imgalignment|qq|:|qq|default|qq|,|qq|imgvideo|qq|:|qq||qq|,|qq|slidearticleid|qq|:|qq||qq|,|qq|slidearticlename|qq|:|qq||qq|,|qq|imgtime|qq|:|qq||qq|}]"
+					filter="raw"
+					showon="source:slidesmanager"
+				/>
+				<field
+					name="spacerfolderimport"
+					type="sliderckspacer"
+					style="title"
+					label="SLIDERCK_SPACERFOLDERIMPORT_LABEL"
+					showon="source:slidesmanager"
+				/>
+				<field
+					type="ckproonly"
+				/>
+			</fieldset>
+			<fieldset name="optionsfieldset" label="MOD_SLIDERCK_OPTIONS_FIELDSET_LABEL" >
+				<field
+					name="spacerdisplay"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_DISPLAY_LABEL"
+					style="title"
+					/>
+				<field
+					name="height"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_HEIGHT_LABEL"
+					description="MOD_SLIDERCK_HEIGHT_DESC"
+					icon="height.png"
+					class="btn-group"
+					default="fixed"
+					>
+					<option value="auto">MOD_SLIDERCK_AUTO</option>
+					<option value="fixed">MOD_SLIDERCK_FIXED_HEIGHT</option>
+				</field>
+				<field
+					name="heightvalue"
+					type="slidercktext"
+					label="MOD_SLIDERCK_HEIGHT_VALUE_LABEL"
+					description="MOD_SLIDERCK_HEIGHT_VALUE_DESC"
+					icon="text_signature.png"
+					showon="height:fixed"
+					default="250"
+					/>
+				<field
+					name="forceimageheight"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_FORCE_IMAGE_HEIGHT_LABEL"
+					description="MOD_SLIDERCK_FORCE_IMAGE_HEIGHT_DESC"
+					icon="layer-resize-replicate-vertical.png"
+					class="btn-group"
+					default="2"
+					>
+					<option value="2">MOD_SLIDERCK_AUTO</option>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="imageheight"
+					type="slidercktext"
+					label="MOD_SLIDERCK_IMAGE_HEIGHT_VALUE_LABEL"
+					description="MOD_SLIDERCK_IMAGE_HEIGHT_VALUE_DESC"
+					icon="height.png"
+					showon="forceimageheight:1"
+					default="100%"
+					/>
+				<field
+					name="navigationbuttons"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_NAVIGATION_BUTTONS_LABEL"
+					description="MOD_SLIDERCK_NAVIGATION_BUTTONS_DESC"
+					icon="navigation.png"
+					class="btn-group"
+					default="1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keybordcontrol"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_KEYBOARD_CONTROL_LABEL"
+					description="MOD_SLIDERCK_KEYBOARD_CONTROL_DESC"
+					icon="keyboard.png"
+					class="btn-group"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="mousecontrol"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_MOUSE_CONTROL_LABEL"
+					description="MOD_SLIDERCK_MOUSE_CONTROL_DESC"
+					icon="mouse.png"
+					class="btn-group"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="pagination"
+					type="slidercklist"
+					label="MOD_SLIDERCK_PAGINATION_LABEL"
+					description="MOD_SLIDERCK_PAGINATION_DESC"
+					icon="edit-list-order.png"
+					default="bullets"
+					>
+					<option value="none">MOD_SLIDERCK_NONE</option>
+					<option value="bullets">MOD_SLIDERCK_PAGINATION_BULLETS</option>
+					<option value="progress">MOD_SLIDERCK_PAGINATION_PROGRESS</option>
+					<option value="fraction">MOD_SLIDERCK_PAGINATION_FRACTION</option>
+					<option value="thumbs">MOD_SLIDERCK_PAGINATION_THUMBS</option>
+				</field>
+				<field
+					name="thumbsheight"
+					type="slidercktext"
+					label="MOD_SLIDERCK_THUMBS_HEIGHT_LABEL"
+					description="MOD_SLIDERCK_THUMBS_HEIGHT__DESC"
+					icon="height.png"
+					default="100"
+					showon="pagination:thumbs"
+					/>
+				<field
+					name="thumbsnumber"
+					type="slidercktext"
+					label="MOD_SLIDERCK_THUMBS_NUMBER_LABEL"
+					description="MOD_SLIDERCK_THUMBS_NUMBER_DESC"
+					icon="application_view_icons.png"
+					default="5"
+					showon="pagination:thumbs"
+					/>
+				<field
+					name="slidesperview"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_VIEW_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_VIEW_DESC"
+					icon="application_view_tile.png"
+					default="auto"
+					/>
+				<field
+					name="slidespergroup"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_GROUP_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_GROUP_DESC"
+					icon="application_side_expand.png"
+					default="1"
+					/>
+				<field
+					name="slidespercolumn"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_COLUMN_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_COLUMN_DESC"
+					icon="application_tile_vertical.png"
+					default="1"
+					/>
+				<field
+					name="spacebetween"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SPACE_BETWEEN_LABEL"
+					description="MOD_SLIDERCK_SPACE_BETWEEN_DESC"
+					icon="edit-alignment-justify-distribute.png"
+					default="30"
+					/>
+				<field
+					name="centeredslides"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_CENTERED_SLIDES_LABEL"
+					description="MOD_SLIDERCK_CENTERED_SLIDES_DESC"
+					icon="category-item.png"
+					class="btn-group"
+					default="true"
+					>
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				<field
+					name="initialslide"
+					type="slidercktext"
+					label="MOD_SLIDERCK_INITIAL_SLIDE_LABEL"
+					description="MOD_SLIDERCK_INITIAL_SLIDE_DESC"
+					icon="star.png"
+					default="1"
+					/>
+				<field
+					name="numberslides"
+					type="slidercktext"
+					label="MOD_SLIDERCK_NUMBER_SLIDES_LABEL"
+					description="MOD_SLIDERCK_NUMBER_SLIDES_DESC"
+					icon="application_cascade.png"
+					default=""
+					/>
+				<field
+					name="shuffle"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_SHUFFLE_LABEL"
+					description="MOD_SLIDERCK_SHUFFLE_DESC"
+					icon="arrow_switch.png"
+					class="btn-group"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="spacertext"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_TEXT_LABEL"
+					style="title"
+					/>
+				<field
+					name="showcaption"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_SHOW_CAPTION_LABEL"
+					description="MOD_SLIDERCK_SHOW_CAPTION_DESC"
+					icon="switch.png"
+					class="btn-group"
+					default="1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="showtitle"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_SHOW_TITLE_LABEL"
+					description="MOD_SLIDERCK_SHOW_TITLE_DESC"
+					icon="switch.png"
+					class="btn-group"
+					default="1"
+					showon="showcaption:1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="showdescription"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_SHOW_DESCRIPTION_LABEL"
+					description="MOD_SLIDERCK_SHOW_DESCRIPTION_DESC"
+					icon="switch.png"
+					class="btn-group"
+					default="1"
+					showon="showcaption:1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="textlength"
+					type="slidercktext"
+					label="MOD_SLIDERCK_TEXT_LENGTH_LABEL"
+					description="MOD_SLIDERCK_TEXT_LENGTH_DESC"
+					icon="text_signature.png"
+					default="100"
+					/>
+				<field
+					name="striptags"
+					type="sliderckradio"
+					default="1"
+					label="SLIDERCK_STRIPTAGS_LABEL"
+					description="SLIDERCK_STRIPTAGS_DESC"
+					icon="html.png"
+					class="btn-group"
+					showon="showcaption:1"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="spacereffect"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_EFFECT_LABEL"
+					style="title"
+					/>
+				<field
+					name="effect"
+					type="slidercklist"
+					label="MOD_SLIDERCK_EFFECT_LABEL"
+					description="MOD_SLIDERCK_EFFECT_DESC"
+					icon="chart_curve.png"
+					default="slide"
+					>
+					<option value="slide">Slide</option>
+					<option value="fade">Fade</option>
+					<option value="cube">Cube</option>
+					<option value="coverflow">Coverflow</option>
+					<option value="flip">Flip</option>
+				</field>
+				<field
+					name="freemode"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_FREE_MODE_LABEL"
+					description="MOD_SLIDERCK_FREE_MODE_DESC"
+					icon="layout-select.png"
+					class="btn-group"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="speed"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SPEED_LABEL"
+					description="MOD_SLIDERCK_SPEED_DESC"
+					icon="hourglass.png"
+					default="300"
+					/>
+				<field
+					name="loop"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_LOOP_LABEL"
+					description="MOD_SLIDERCK_LOOP_DESC"
+					icon="control_repeat.png"
+					class="btn-group"
+					default="0"
+					>
+					<option value="true">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="autoplay"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_AUTOPLAY_LABEL"
+					description="MOD_SLIDERCK_AUTOPLAY_DESC"
+					icon="control_play.png"
+					class="btn-group"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="autoplaypauseonover"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_AUTOPLAY_PAUSE_ON_HOVER_LABEL"
+					description="MOD_SLIDERCK_AUTOPLAY_PAUSE_ON_HOVER_DESC"
+					icon="control_pause.png"
+					class="btn-group"
+					default="false"
+					showon="autoplay:1"
+					>
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				<field
+					name="autoplaytime"
+					type="slidercktext"
+					label="MOD_SLIDERCK_AUTOPLAY_TIME_LABEL"
+					description="MOD_SLIDERCK_AUTOPLAY_TIME_DESC"
+					icon="hourglass.png"
+					default="300"
+					showon="autoplay:1"
+					/>
+				<field
+					name="spacerlink"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_LINK_SPACER_LABEL"
+					style="title"
+					/>
+				<field
+					name="linkposition"
+					type="slidercklist"
+					label="MOD_SLIDERCK_LINK_POSITION_LABEL"
+					description="MOD_SLIDERCK_LINK_POSITION_DESC"
+					icon="link.png"
+					default="fullslide"
+					>
+					<option value="fullslide">MOD_SLIDERCK_LINK_FULLSLIDE</option>
+					<option value="caption">MOD_SLIDERCK_LINK_CAPTION</option>
+					<option value="title">MOD_SLIDERCK_LINK_TITLE</option>
+					<option value="button">MOD_SLIDERCK_LINK_BUTTON</option>
+					<option value="none">MOD_SLIDERCK_NONE</option>
+				</field>
+				<field
+					name="linkbuttontext"
+					type="slidercktext"
+					label="MOD_SLIDERCK_LINK_BUTTON_TEXT_LABEL"
+					description="MOD_SLIDERCK_LINK_BUTTON_TEXT_DESC"
+					icon="text_signature.png"
+					default="MOD_SLIDERCK_LINK_BUTTON_TEXT"
+					showon="linkposition:button"
+					/>
+				<field
+					name="linkbuttonclass"
+					type="slidercktext"
+					label="MOD_SLIDERCK_LINK_BUTTON_CLASS_LABEL"
+					description="MOD_SLIDERCK_LINK_BUTTON_CLASS_DESC"
+					icon="css.png"
+					default="btn"
+					showon="linkposition:button"
+					/>
+				<field
+					name="linkautoimage"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_LINK_AUTOIMAGE_LABEL"
+					description="MOD_SLIDERCK_LINK_AUTOIMAGE_DESC"
+					icon="link.png"
+					default="0"
+					class="btn-group"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="linktarget"
+					type="slidercklist"
+					label="MOD_SLIDERCK_LINK_TARGET_LABEL"
+					description="MOD_SLIDERCK_LINK_TARGET_DESC"
+					icon="link_go.png"
+					default="_parent"
+					>
+					<option value="_parent">MOD_SLIDERCK_LINK_SAME_WINDOW</option>
+					<option value="_blank">MOD_SLIDERCK_LINK_NEW_WINDOW</option>
+					<option value="lightbox">MOD_SLIDERCK_LIGHTBOX</option>
+				</field>
+				<field
+					name="spacerlightbox"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_LIGHTBOX_SPACER_LABEL"
+					style="title"
+					/>
+				<field
+					type="ckproonly"
+					/>
+			</fieldset>
+			<fieldset name="stylesfieldset" label="MOD_SLIDERCK_STYLES_FIELDSET_LABEL" >
+				<field
+					name="sliderlayout"
+					type="cklayout"
+					label="MOD_SLIDERCK_LAYOUT_LABEL"
+					default="over"
+					>
+					<option value="over">img:layout_over.png</option>
+					<option value="horizontal">img:layout_horizontal.png</option>
+					<option value="vertical">img:layout_vertical.png</option>
+				</field>
+				<field
+					name="styles"
+					type="ckstyle"
+					label="MOD_SLIDERCK_SELECT_STYLE_LABEL"
+					description="MOD_SLIDERCK_SELECT_STYLE_DESC"
+					icon="palette.png"
+					default=""
+					/>
+			</fieldset>
+			<fieldset name="responsivefieldset" label="MOD_SLIDERCK_RESPONSIVE_FIELDSET_LABEL">
+				<field
+					name="responsivespacer"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_RESPONSIVE_DESC"
+					style="info"
+					/>
+				<field
+					name="responsive1spacer"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_RESPONSIVE1_LABEL"
+					style="title"
+					/>
+				<field
+					name="responsive1activate"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_RESPONSIVE_ACTIVATE_LABEL"
+					icon="switch.png"
+					default="0"
+					class="btn-group"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="responsive1resolution"
+					type="slidercktext"
+					label="MOD_SLIDERCK_RESPONSIVE_RESOLUTION_LABEL"
+					description="MOD_SLIDERCK_RESPONSIVE_RESOLUTION_DESC"
+					icon="width.png"
+					default="320"
+					suffix="px"
+				/>
+				<field
+					name="responsive1slidesperview"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_VIEW_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_VIEW_DESC"
+					icon="application_view_tile.png"
+					default="1"
+					/>
+				<field
+					name="responsive1slidespercolumn"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_COLUMN_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_COLUMN_DESC"
+					icon="application_tile_vertical.png"
+					default="1"
+					/>
+				<field
+					name="responsive1slidespergroup"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_GROUP_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_GROUP_DESC"
+					icon="application_side_expand.png"
+					default="1"
+					/>
+				<field
+					name="responsive1spacebetween"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SPACE_BETWEEN_LABEL"
+					description="MOD_SLIDERCK_SPACE_BETWEEN_DESC"
+					icon="edit-alignment-justify-distribute.png"
+					default="10"
+					/>
+				
+				<field
+					name="responsive2spacer"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_RESPONSIVE2_LABEL"
+					style="title"
+					/>
+				<field
+					name="responsive2activate"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_RESPONSIVE_ACTIVATE_LABEL"
+					icon="switch.png"
+					default="0"
+					class="btn-group"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="responsive2resolution"
+					type="slidercktext"
+					label="MOD_SLIDERCK_RESPONSIVE_RESOLUTION_LABEL"
+					description="MOD_SLIDERCK_RESPONSIVE_RESOLUTION_DESC"
+					icon="width.png"
+					default="480"
+					suffix="px"
+				/>
+				<field
+					name="responsive2slidesperview"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_VIEW_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_VIEW_DESC"
+					icon="application_view_tile.png"
+					default="2"
+					/>
+				<field
+					name="responsive2slidespercolumn"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_COLUMN_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_COLUMN_DESC"
+					icon="application_tile_vertical.png"
+					default="1"
+					/>
+				<field
+					name="responsive2slidespergroup"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_GROUP_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_GROUP_DESC"
+					icon="application_side_expand.png"
+					default="1"
+					/>
+				<field
+					name="responsive2spacebetween"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SPACE_BETWEEN_LABEL"
+					description="MOD_SLIDERCK_SPACE_BETWEEN_DESC"
+					icon="edit-alignment-justify-distribute.png"
+					default="20"
+					/>
+					
+				<field
+					name="responsive3spacer"
+					type="sliderckspacer"
+					label="MOD_SLIDERCK_RESPONSIVE3_LABEL"
+					style="title"
+					/>
+				<field
+					name="responsive3activate"
+					type="sliderckradio"
+					label="MOD_SLIDERCK_RESPONSIVE_ACTIVATE_LABEL"
+					icon="switch.png"
+					default="0"
+					class="btn-group"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="responsive3resolution"
+					type="slidercktext"
+					label="MOD_SLIDERCK_RESPONSIVE_RESOLUTION_LABEL"
+					description="MOD_SLIDERCK_RESPONSIVE_RESOLUTION_DESC"
+					icon="width.png"
+					default="640"
+					suffix="px"
+				/>
+				<field
+					name="responsive3slidesperview"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_VIEW_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_VIEW_DESC"
+					icon="application_view_tile.png"
+					default="3"
+					/>
+				<field
+					name="responsive3slidespercolumn"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_COLUMN_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_COLUMN_DESC"
+					icon="application_tile_vertical.png"
+					default="1"
+					/>
+				<field
+					name="responsive3slidespergroup"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SLIDES_PER_GROUP_LABEL"
+					description="MOD_SLIDERCK_SLIDES_PER_GROUP_DESC"
+					icon="application_side_expand.png"
+					default="1"
+					/>
+				<field
+					name="responsive3spacebetween"
+					type="slidercktext"
+					label="MOD_SLIDERCK_SPACE_BETWEEN_LABEL"
+					description="MOD_SLIDERCK_SPACE_BETWEEN_DESC"
+					icon="edit-alignment-justify-distribute.png"
+					default="30"
+					/>
+				<field
+					name="captionresponsiveckspacer"
+					type="sliderckspacer"
+					label="SLIDERCK_SPACER_RESPONSIVE"
+					style="title"
+				/>
+				<field
+					name="usecaptionresponsive"
+					type="slidercklist"
+					label="SLIDERCK_USERESPONSIVECAPTION_LABEL"
+					description="SLIDERCK_USERESPONSIVECAPTION_DESC"
+					icon="ipod.png"
+					class="btn-group"
+					default="0"
+					>
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field
+					name="captionresponsivehidecaption"
+					type="sliderckradio"
+					label="SLIDERCK_RESPONSIVEHIDECAPTION_LABEL"
+					description="SLIDERCK_RESPONSIVEHIDECAPTION_DESC"
+					icon="style_delete.png"
+					class="btn-group"
+					default="0"
+					showon="usecaptionresponsive!:0"
+					>
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				<field
+					name="captionresponsiveresolution"
+					type="slidercktext"
+					label="SLIDERCK_RESPONSIVERESOLUTION_LABEL"
+					description="SLIDERCK_RESPONSIVERESOLUTION_DESC"
+					icon="width.png"
+					default="480"
+					showon="usecaptionresponsive!:0[AND]captionresponsivehidecaption:0"
+				/>
+				<field
+					name="captionresponsivefontsize"
+					type="slidercktext"
+					label="SLIDERCK_RESPONSIVEFONTSIZE_LABEL"
+					description="SLIDERCK_RESPONSIVEFONTSIZE_DESC"
+					icon="style.png"
+					default="0.6em"
+					showon="usecaptionresponsive:1[AND]captionresponsivehidecaption:0"
+				/>
+				
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="fixhtml"
+					type="sliderckradio"
+					default="0"
+					label="SLIDERCK_FIXHTML_LABEL"
+					description="SLIDERCK_FIXHTML_DESC"
+					icon="bug_delete.png"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="content_prepare"
+					type="sliderckradio"
+					default="1"
+					label="SLIDERCK_CONTENT_PREPARE_LABEL"
+					description="SLIDERCK_CONTENT_PREPARE_DESC"
+					class="btn-group"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+					 />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					icon="text_signature.png" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					 >
+					<option	value="1">JGLOBAL_USE_GLOBAL</option>
+					<option	value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					icon="hourglass.png"
+					suffix="min" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid" >
+					<option	value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

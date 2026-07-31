@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="sl_items" class="image-subform">
+		<field name="ol_image" type="media" default="" label="Image" description="Select an image" /> 
+		<field name="ol_title" type="text" default="" label="Title" description="Enter the title here" />
+		<field name="ol_name" type="text" size="60" default="" label="SubTitle" description="Here add the SubTitle" />
+		<field name="ol_info" type="editor" filter="safehtml" cols="40" rows="5" default="" label="Info" description="Enter the Info here" />	
+		<field name="ol_link" type="text" default="" label="Read More Link" description="Enter the read more link here." />	
+		<field name="get_target" type="radio" class="btn-group"  default="_self" label="Open link in new widow" description="Open your image link to a new browser widow" >
+			<option value="_self">JNO</option>
+			<option value="_blank">JYES</option>
+		</field>
+	</fieldset>
+</form>

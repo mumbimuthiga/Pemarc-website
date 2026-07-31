@@ -1,0 +1,1 @@
+<?php die("Access Denied"); ?>#x#a:2:{s:6:"result";a:1:{i:0;a:6:{s:5:"@type";s:7:"Article";s:3:"@id";s:51:"https://pemarc.com/#/schema/com_content/article/140";s:4:"name";s:9:"Waithaka ";s:8:"headline";s:9:"Waithaka ";s:10:"inLanguage";s:5:"en-GB";s:8:"isPartOf";a:1:{s:3:"@id";s:40:"https://pemarc.com/#/schema/WebPage/base";}}}s:6:"output";s:0:"";}

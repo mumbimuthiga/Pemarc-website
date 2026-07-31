@@ -1,0 +1,19 @@
+/**
+ * [Copyright Regular Labs]
+ */
+
+@import "../../regularlabs/scss/_variables";
+@import "_mixins";
+@import "_mixins-accent-lines";
+
+[data-rlta-element="container"][data-rlta-state="ready"][data-rlta-theme="accent-lines"] {
+    @import "_styling-solid";
+
+    @include accentLines_borderWidth();
+
+    @include colors(false, false, false, false, false, 500);
+    @include color("black", false, false, false, false, false, $rl-black);
+
+    @include accentLines_colors(500);
+    @include accentLines_color("black", $rl-black);
+}

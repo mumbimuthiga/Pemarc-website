@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="params">
+		<fieldset name="mobilemenuck_itemparams" label="PLG_MOBILEMENUCK_FIELDSET_LABEL">
+			<field
+				name="mobilemenuck_icontype"
+				type="list"
+				default="image"
+				label="PLG_MOBILEMENUCK_ICONTYPE_LABEL"
+				class="btn-group" >
+				<option value="image">PLG_MOBILEMENUCK_ICONTYPE_IMAGE</option>
+				<option value="css">PLG_MOBILEMENUCK_ICONTYPE_CSS</option>
+			</field>
+			<field
+				name="mobilemenuck_icon"
+				type="media"
+				default=""
+				label="PLG_MOBILEMENUCK_MOBILEICON_LABEL"
+				description="PLG_MOBILEMENUCK_MOBILEICON_DESC"
+				showon="mobilemenuck_icontype:image"
+			/>
+			<field
+				name="mobilemenuck_iconsvg"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MOBILEICONSVG_LABEL"
+				showon="mobilemenuck_icontype:svg"
+			/>
+			<field
+				name="mobilemenuck_iconcss"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MOBILEICONCSS_LABEL"
+				showon="mobilemenuck_icontype:css"
+			/>
+			<field
+				name="mobilemenuck_textreplacement"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MOBILETEXTREPLACEMENT_LABEL"
+				description="PLG_MOBILEMENUCK_MOBILETEXTREPLACEMENT_DESC"
+				icon="text_signature.png" />
+			<field
+				name="mobilemenuck_enablemobile"
+				type="radio"
+				default="1"
+				label="PLG_MOBILEMENUCK_ENABLEMOBILE_LABEL"
+				description="PLG_MOBILEMENUCK_ENABLEMOBILE_DESC"
+				icon="phone.png" 
+				class="btn-group" >
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+		</fieldset>
+	</fields>
+</form>

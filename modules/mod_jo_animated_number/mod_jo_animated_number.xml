@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="5.0" client="site" method="upgrade">
+    <name>JO Animated Number</name>
+    <author>JewelOsman.Com</author>
+    <creationDate>May 2025</creationDate>
+    <copyright>Copyright (C) 2025 jewelosman.com.</copyright>
+    <license>GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <authorEmail>jewelosman@gmail.com</authorEmail>
+    <authorUrl>www.jewelosman.com</authorUrl>
+    <version>1.1.0</version>
+    <description>MOD_JO_ANIMATED_NUMBER_DESC</description>
+
+    <updateservers>
+        <server type="extension" priority="1" name="JO Animated Number">https://devjo.jewelosman.com/downloads/mod_jo_animated_number.xml</server>
+    </updateservers>
+
+    <files>
+        <filename module="mod_jo_animated_number">mod_jo_animated_number.php</filename>
+        <filename>helper.php</filename>
+        <folder>assets</folder>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+	
+<languages>
+    <language tag="en-GB">language/en-GB/en-GB.mod_jo_animated_number.ini</language>
+    <language tag="en-GB">language/en-GB/en-GB.mod_jo_animated_number.sys.ini</language>
+</languages>
+
+<config>
+    <fields name="params">
+        <fieldset name="basic">
+            <field
+                name="title"
+                type="text"
+                label="MOD_JO_ANIMATED_NUMBER_TITLE_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_TITLE_DESC" />
+            <field
+                name="title_font_size"
+                type="text"
+                default="20px"
+                label="MOD_JO_ANIMATED_NUMBER_TITLE_FONTSIZE_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_TITLE_FONTSIZE_DESC" />
+            <field
+                name="title_color"
+                type="color"
+                default="#333333"
+                label="MOD_JO_ANIMATED_NUMBER_TITLE_COLOR_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_TITLE_COLOR_DESC" />
+            <field
+                name="title_position"
+                type="radio"
+				default="top"
+                label="MOD_JO_ANIMATED_NUMBER_TITLE_POSITION_LABEL"
+                class="btn-group btn-group-success">
+                <option value="top">MOD_JO_ANIMATED_NUMBER_TITLE_POSITION_TOP</option>
+                <option value="bottom">MOD_JO_ANIMATED_NUMBER_TITLE_POSITION_BOTTOM</option>
+            </field>
+            <field
+                name="number"
+                type="text"
+                label="MOD_JO_ANIMATED_NUMBER_NUMBER_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_NUMBER_DESC" />
+            <field
+                name="number_font_size"
+                type="text"
+                default="24px"
+                label="MOD_JO_ANIMATED_NUMBER_NUMBER_FONTSIZE_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_NUMBER_FONTSIZE_DESC" />
+            <field
+                name="number_color"
+                type="color"
+                default="#333333"
+                label="MOD_JO_ANIMATED_NUMBER_NUMBER_COLOR_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_NUMBER_COLOR_DESC" />
+            <field
+                name="prefix"
+                type="text"
+                label="MOD_JO_ANIMATED_NUMBER_PREFIX_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_PREFIX_DESC" />
+            <field
+                name="prefix_font_size"
+                type="text"
+                default="20px"
+                label="MOD_JO_ANIMATED_NUMBER_PREFIX_FONTSIZE_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_PREFIX_FONTSIZE_DESC" />
+            <field
+                name="prefix_color"
+                type="color"
+                default="#333333"
+                label="MOD_JO_ANIMATED_NUMBER_PREFIX_COLOR_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_PREFIX_COLOR_DESC" />
+            <field
+                name="prefix_position"
+                type="radio"
+				default="after"
+                label="MOD_JO_ANIMATED_NUMBER_PREFIX_POSITION_LABEL"
+                class="btn-group btn-group-success">
+                <option value="before">MOD_JO_ANIMATED_NUMBER_PREFIX_POSITION_BEFORE</option>
+                <option value="after">MOD_JO_ANIMATED_NUMBER_PREFIX_POSITION_AFTER</option>
+            </field>
+            <field
+                name="animation_type"
+                type="list"
+                label="MOD_JO_ANIMATED_NUMBER_ANIMATION_TYPE_LABEL"
+                default="circular">
+                <option value="circular">MOD_JO_ANIMATED_NUMBER_ANIMATION_TYPE_CIRCULAR</option>
+                <option value="signal">MOD_JO_ANIMATED_NUMBER_ANIMATION_TYPE_SIGNAL</option>
+            </field>
+            <field
+                name="animation_duration"
+                type="text"
+                label="MOD_JO_ANIMATED_NUMBER_ANIMATION_DURATION_LABEL"
+                default="2000"
+                description="MOD_JO_ANIMATED_NUMBER_ANIMATION_DURATION_DESC" />
+            <field
+                name="animation_color"
+                type="color"
+                default="#2196F3"
+                label="MOD_JO_ANIMATED_NUMBER_ANIMATION_COLOR_LABEL"
+                description="MOD_JO_ANIMATED_NUMBER_ANIMATION_COLOR_DESC" />
+        </fieldset>
+    </fields>
+</config>
+</extension>

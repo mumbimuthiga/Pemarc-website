@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>JT Content Filter</name>
+	<version>1.8</version>
+	<creationDate>Aug 2023</creationDate>
+	<author>Joomlatema.net</author>
+	<authorEmail>admin@joomlatema.net</authorEmail>
+	<authorUrl>https://www.joomlatema.net</authorUrl>
+	<copyright>JOOMLATEMA.NET</copyright>
+	<license>GPL-3.0-or-later</license>
+	<description><![CDATA[
+		<h3>JT Content Filter</h3>
+		<p>JT Content Filter is a free module to display Joomla content filtered by Category names or Content Tags or both. It uses Filterizr Script. It is mobile compatible and has responsive design. Simple and easy to use.</p>
+		<p>This module is perfect for any website that wants to display Joomla Content as filtered by Category.</p>
+		<h4>Features:</h4>
+		<ul>
+			<li>Select Filters (Category, Tags or Both)</li>
+			<li>Show Content Tags in text</li>
+			<li>Category</li>
+			<li>Articles to Display</li>
+			<li>Featured Articles</li>
+			<li>Order</li>
+			<li>Authors</li>
+			<li>Layout Style</li>
+			<li>Show / Hide Sort and Shuffle Bar</li>
+			<li>Spacing between the items in your grid, in pixels</li>
+			<li>Delay Mode: The delay mode for Filterizr</li>
+			<li>Delay Duration: The delay duration between items in your grid</li>
+			<li>Animation Duration</li>
+			<li>The width of each slide (required for all horizontal carousels)</li>
+			<li>Module Padding</li>
+			<li>Module Global Padding (e.g., 10px 10px 10px 10px)</li>
+			<li>Number of Columns</li>
+			<li>Number of Columns for large screens (>991px)</li>
+		</ul>
+		<h4>Article Properties:</h4>
+		<ul>
+			<li>Show / Hide Title</li>
+			<li>Limit Title</li>
+			<li>End of Title Replacer</li>
+			<li>Show / Hide Introtext</li>
+			<li>Intro Text Chars Limit (0 = No limit, 1 = No intro text)</li>
+			<li>Show / Hide Author</li>
+			<li>Show / Hide Category</li>
+			<li>Show / Hide Date</li>
+			<li>Date Format</li>
+			<li>Show / Hide Read More</li>
+			<li>Show More Category Links (related category links in the bottom of the item list)</li>
+			<li>More In Text (Change More In Text)</li>
+		</ul>
+		<h4>Thumbnail Settings:</h4>
+		<ul>
+			<li>Thumbnail Position</li>
+			<li>Thumbnail Alignment</li>
+			<li>Thumbnail Width</li>
+			<li>Thumbnail Height (Enter height of generated image thumbnail)</li>
+			<li>Keep Aspect Ratio</li>
+			<li>Thumbnail Margin</li>
+			<li>Show Default Thumbnail (when no image found on the article)</li>
+			<li>Show Hover Icons (Zoom and Link Icons on Thumbnails)</li>
+			<li>Link Image</li>
+		</ul>
+	]]></description>
+	<namespace path="src">Joomla\Module\JTContentFilter</namespace>
+	<files>
+		<filename module="mod_jt_contentfilter">mod_jt_contentfilter.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="JT Content Filter Updates">
+			https://joomlatema.net/update_server/joomla4/jt_contentfilter.xml
+		</server>
+	</updateservers>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_jt_contentfilter.ini</language>
+		<language tag="tr-TR">language/tr-TR/tr-TR.mod_jt_contentfilter.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				
+				</fieldset>
+				<fieldset name="general_settings">
+					<field 
+					name="source" 
+					type="note" 
+					class="alert alert-info" 
+					label="MOD_JTCF_DATA_SOURCE" />
+					<field
+					name="catid"
+					type="category"
+					label="JCATEGORY"
+					extension="com_content"
+					multiple="true"
+					filter="int_array"
+				/>
+				
+				<field
+					name="count"
+					type="number"
+					label="MOD_JTCF_FIELD_COUNT_LABEL"
+					default="10"
+					filter="integer"
+				/>
+				<field 
+					name="slideColumn" 
+					type="text" 
+					default="4" 
+					label="MOD_JTCF_SLIDECOLUMN_LABEL" 
+					description="MOD_JTCF_SLIDECOLUMN_LABEL_DESC" />	
+					
+				<field
+					name="ordering"
+					type="list"
+					label="MOD_JTCF_FIELD_ORDERING_LABEL"
+					default="a.created"					>	
+					<option value="a.ordering">MOD_JTCF_ORDERING_VALUE</option>
+					<option value="fp.ordering">MOD_JTCF_ORDERINGFEATURED_VALUE</option>
+					<option value="a.hits" requires="hits">MOD_JTCF_HITS_VALUE</option>
+					<option value="a.title">JGLOBAL_TITLE</option>
+					<option value="a.id">MOD_JTCF_ID_VALUE</option>
+					<option value="a.alias">JFIELD_ALIAS_LABEL</option>
+					<option value="a.created">MOD_JTCF_CREATED_VALUE</option>
+					<option value="modified">MOD_JTCF_MODIFIED_VALUE</option>
+					<option value="publish_up">MOD_JTCF_STARTPUBLISHING_VALUE</option>
+					<option value="a.publish_down">MOD_JTCF_FINISHPUBLISHING_VALUE</option>
+					<option value="random">MOD_JTCF_RANDOM_VALUE</option>
+					<option value="rating_count" requires="vote">MOD_JTCF_VOTE_VALUE</option>
+					<option value="rating" requires="vote">MOD_JTCF_RATING_VALUE</option>
+				</field>
+				
+				<field
+					name="article_ordering_direction"
+					type="list"
+					label="MOD_JTCF_ARTICLEORDERINGDIR_LABEL"
+					default="DESC"
+					validate="options"
+					>
+					<option value="DESC">MOD_JTCF_DESCENDING_VALUE</option>
+					<option value="ASC">MOD_JTCF_ASCENDING_VALUE</option>
+				</field>
+				<field
+					name="show_featured"
+					type="list"
+					label="MOD_JTCF_FIELD_FEATURED_LABEL"
+					default=""
+					filter="integer"
+					>
+					<option value="">JSHOW</option>
+					<option value="0">JHIDE</option>
+					<option value="1">MOD_JTCF_VALUE_ONLY_SHOW_FEATURED</option>
+				</field>
+				
+				<field
+					name="user_id"
+					type="list"
+					label="MOD_JTCF_FIELD_USER_LABEL"
+					default="0"
+					>
+					<option value="0">MOD_JTCF_VALUE_ANYONE</option>
+					<option value="by_me">MOD_JTCF_VALUE_ADDED_BY_ME</option>
+					<option value="not_me">MOD_JTCF_VALUE_NOTADDED_BY_ME</option>
+					<option value="created_by">MOD_JTCF_VALUE_CREATED_BY</option>
+				</field>
+
+				<field
+					name="author"
+					type="author"
+					label="MOD_JTCF_FIELD_AUTHOR_LABEL"
+					multiple="true"
+					showon="user_id:created_by"
+				/>
+				<field 
+					name="note1" 
+					type="note" 
+					class="alert alert-info" 
+					label="MOD_JTCF_LAYOUT" />
+					
+					<field
+					name="select_filter"
+					type="list"
+					label="MOD_JTCF_SELECTFILTERS_LABEL"
+					description="MOD_JTCF_SELECTFILTERS_LABEL_DESC"
+					default="category"
+					validate="options"
+					>
+					<option value="category">JCATEGORY</option>
+					<option value="tags">MOD_JTCF_TAGS</option>
+				</field>
+					
+					<field
+					name="jtcf_style"
+					type="list"
+					label="MOD_JTCF_STYLE_LABEL"
+					description="MOD_JTCF_STYLE_LABEL"
+					default="sameSize"
+					validate="options"
+					>
+					<option value="sameSize">MOD_JTCF_SAMESIZE</option>
+					<option value="sameWidth">MOD_JTCF_SAMEWIDTH</option>
+					<option value="sameHeight">MOD_JTCF_SAMEHEIGHT</option>
+					<option value="packed">MOD_JTCF_PACKED</option>
+					<option value="horizontal">MOD_JTCF_HORIZONTAL</option>
+					<option value="vertical">MOD_JTCF_VERTICAL</option>
+				</field>
+					<field
+					name="show_sortandshuffle"
+					type="list"
+					label="MOD_JTCF_SHOW_SORTANDSHUFFLE_LABEL"
+					description="MOD_JTCF_SHOW_SORTANDSHUFFLE_LABEL_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+					<field 
+					name="gutterPixels" 
+					type="text" 
+					default="15" 
+					label="MOD_JTCF_GUTTERPIXELS_LABEL" 
+					description="MOD_JTCF_GUTTERPIXELS_LABEL_DESC" />
+					<field
+					name="show_sortandshuffle"
+					type="list"
+					label="MOD_JTCF_SHOW_SORTANDSHUFFLE_LABEL"
+					description="MOD_JTCF_SHOW_SORTANDSHUFFLE_LABEL_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+					<field 
+					name="delayMode" type="radio" 
+					default="progressive" 
+					class="btn-group"
+					label="MOD_JTCF_DELAYMODE_LABEL" description="MOD_JTCF_DELAYMODE_LABEL_DESC">
+					<option value="progressive">Progressive</option>
+					<option value="alternate">Alternate</option>
+				</field>
+					<field 
+					name="delay" 
+					type="text" 
+					default="50" 
+					label="MOD_JTCF_DELAY_LABEL" 
+					description="MOD_JTCF_DELAY_LABEL_DESC" />
+					
+					
+					<field 
+					name="animationDuration" 
+					type="text" 
+					default="0.5" 
+					label="MOD_JTCF_ANIMATIONDURATION_LABEL" 
+					description="MOD_JTCF_ANIMATIONDURATION_LABEL_DESC" />
+					
+					<field 
+					name="pretext_title" 
+					showon="show_pretext:1" 
+					type="text" default=""
+					filter="raw"
+					label="PRETEXT_TITLE" 
+					description="PRETEXT_TITLE_DESC" />
+					
+				<field 
+				name="pretext" 
+				type="textarea" 
+				showon="show_pretext:1" 
+				default="It's easy to get started creating your website. Knowing some of the basics will help."
+				filter="raw"
+				label="PRETEXT" description="PRETEXT_DESC" />
+				
+				<field 
+					name="content_padding" 
+					type="text" 
+					default="10px 10px 10px 10px" 
+					label="MOD_JTCF_CONTENT_PADDING_LABEL" 
+					description="MOD_JTCF_CONTENT_PADDING_LABEL_DESC" />
+					
+				<field 
+					name="FilterBtnClass" 
+					type="text" 
+					default="" 
+					label="MOD_JTCF_ADDCLASS_FILTERBUTTON_LABEL" 
+					description="MOD_JTCF_ADDCLASS_FILTERBUTTON_LABEL_DESC" />
+					
+					<field 
+					name="SortShuffleBtnClass" 
+					type="text" 
+					default="" 
+					label="MOD_JTCF_ADDCLASS_SORTSHUFFLE_LABEL" 
+					description="MOD_JTCF_ADDCLASS_SORTSHUFFLE_LABEL_DESC" />
+					
+				</fieldset>
+				<fieldset name="MOD_JTCF_ARTICLE_PROPERTIES_LABEL">
+			
+				<field 
+					name="note2" 
+					type="note" 
+					class="alert alert-info" 
+					label="MOD_JTCF_ARTICLE_PROPERTIES_LABEL"/>
+					
+					<field 
+					name="article_block_padding" 
+					type="text" 
+					default="0px 0px 20px 0px " 
+					label="MOD_JTCF_ARTICLE_BLOCKPADDING_LABEL" 
+					description="MOD_JTCF_ARTICLE_BLOCKPADDING_LABEL_DESC" />
+					
+					<field 
+					name="article_block_margin" 
+					type="text" 
+					default="0px 0px 20px 0px " 
+					label="MOD_JTCF_ARTICLE_BLOCKMARGIN_LABEL" 
+					description="MOD_JTCF_ARTICLE_BLOCKMARGIN_LABEL_DESC" />
+					<field 
+					name="show_title" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_TITLE_LABEL" 
+					description="MOD_JTCF_SHOW_TITLE_LABEL_DESC" 
+				class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+					name="limit_title_by" 
+					type="radio" 
+					default="char" 
+					label="MOD_JTCF_LIMIT_TITLEBY_LABEL" 
+					description="MOD_JTCF_LIMIT_TITLEBY_LABEL_DESC" 
+					class="btn-group btn-group-yesno">
+					<option value="word">LIMIT_WORD</option>
+					<option value="char">LIMIT_CHARACTER</option>
+				</field>
+				<field 
+					name="limit_title" 
+					type="text" 
+					default="25" 
+					label="MOD_JTCF_TITLE_LIMIT_LABEL" 
+					description="MOD_JTCF_TITLE_LIMIT_LABEL_DESC" />
+					
+					<field 
+					name="replacer" 
+					type="text" 
+					default="..."
+					label="MOD_JTCF_END_OF_TITLE_REPLACER" 
+					description="MOD_JTCF_END_OF_TITLE_REPLACER_DESC" />
+					
+				<field 
+					name="show_introtext" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_INTRO_LABEL" 
+					description="MOD_JTCF_SHOW_INTRO_LABEL_DESC" 
+					class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+					<field 
+					name="limit_intro_by" 
+					type="radio" 
+					default="char" 
+					label="MOD_JTCF_LIMIT_INTROBY_LABEL" 
+					description="MOD_JTCF_LIMIT_INTROBY_LABEL_DESC" 
+					class="btn-group btn-group-yesno">
+					<option value="word">LIMIT_WORD</option>
+					<option value="char">LIMIT_CHARACTER</option>
+				</field>
+				<field 
+					name="limit_intro" 
+					type="text" 
+					default="100" 
+					label="MOD_JTCF_INTROTEXT_LIMIT_LABEL" 
+					description="MOD_JTCF_INTROTEXT_LIMIT_DESC" />
+					<field 
+					name="show_author" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_AUTHOR_LABEL"
+					description="MOD_JTCF_SHOW_AUTHOR_LABEL_DESC"  
+					class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field 
+					name="replacer_text" 
+					type="text" 
+					default="..."
+					label="MOD_JTCF_END_OF_TEXT_REPLACER" 
+					description="MOD_JTCF_END_OF_TEXT_REPLACER_DESC" />
+				<field 
+					name="show_category" 
+					type="radio" 
+					default="0" 
+					label="MOD_JTCF_SHOW_CATEGORY_LABEL" 
+					description="MOD_JTCF_SHOW_CATEGORY_LABEL_DESC" 
+					class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+					name="show_category_link"
+					showon="show_category:1" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_CATEGORYLINK_LABEL" 
+					description="MOD_JTCF_SHOW_CATEGORYLINK_LABEL_DESC" 
+					class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+					name="show_date" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_DATE_LABEL" 
+					description="MOD_JTCF_SHOW_DATE_LABEL_DESC" 
+					class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field name="show_date_type" 
+					type="list" 
+					default="1" 
+					label="MOD_JTCF_DATE_FORMAT_LABEL">
+					<option value="1">Monday, 22 April 2019 00:36</option>
+					<option value="2">22 April 2019</option>
+					<option value="3">00:36</option>
+					<option value="4">Mon, Apr 22nd 2019</option>
+					<option value="5">Monday, April 22nd 2019 00:36</option>
+					<option value="6">MOD_JTCF_CUSTOM_DATE_FORMAT_LABEL</option>
+				</field>
+
+				<field 
+					name="custom_date_format" 
+					type="text" 
+					default="" 
+					label="MOD_JTCF_CUSTOM_DATE_FORMAT_LABEL" 
+					filter="raw"
+					description="MOD_JTCF_CUSTOM_DATE_FORMAT_DESC" 
+					showon="show_date_type:6"	
+				/>
+				<field 
+					name="show_hits" 
+					type="radio" 
+					default="0" 
+					label="MOD_JTCF_SHOW_HITS_LABEL" 
+					description="MOD_JTCF_SHOW_HITS_LABEL_DESC" 
+					class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+					name="showReadmore" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_READMORE_LABEL" 
+					description="MOD_JTCF_SHOW_READMORE_LABEL_DESC" 
+				class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+					name="ReadMoreText" 
+					type="text" 
+					default="Read More" 
+					showon="showReadmore:1"
+					label="MOD_JTCF_READMORETEXT_LABEL" 
+					filter="raw"
+					description="MOD_JTCF_READMORETEXT_LABEL_DESC" 	
+				/>
+				<field 
+					name="show_more_in" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_MORE_LABEL" 
+					description="MOD_JTCF_SHOW_MORE_DESC"
+					class="btn-group btn-group-yesno">
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+				
+				<field 
+					name="morein_text" 
+					type="text" 
+					default="More In" 
+					showon="show_more_in:1"
+					label="MOD_JTCF_MOREINTEXT_LABEL" 
+					filter="raw"
+					description="MOD_JTCF_MOREINTEXT_LABEL_DESC" 	
+				/>
+				<field 
+					name="ShowContentTags" 
+					type="radio" 
+					default="0" 
+					label="MOD_JTCF_SHOW_CONTENTTAGS_LABEL" 
+					description="MOD_JTCF_SHOW_CONTENTTAGS_LABEL_DESC" 
+				class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				</fieldset>
+				<fieldset name="MOD_JTCF_THUMBNAIL_SETTINGS_LABEL"  addfieldpath="/modules/mod_jt_contentfilter/admin/fields/">
+				<field 
+					name="note3" 
+					type="note" 
+					class="alert alert-info " 
+					label="MOD_JTCF_THUMBNAIL_SETTINGS_LABEL"/>
+					
+					<field 
+					name="show_thumbnail" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_SHOW_THUMBNAIL_LABEL" 
+					description="MOD_JTCF_SHOW_THUMBNAIL_LABEL_DESC"
+					class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+				<field name="thumb_align" class="bt_control" type="list" default="none" label="THUMB_ALIGN"
+					description="THUMB_ALIGN_DESC">
+					<option value="left">JGLOBAL_LEFT</option>
+					<option value="right">JGLOBAL_RIGHT</option>
+					<option value="none">JNONE</option>
+				</field>
+				
+					<field 
+					name="keep_aspect_ratio" 
+					type="radio" 
+					default="false" 
+					class="btn-group btn-group-yesno"
+					label="MOD_JTCF_KEEP_ASPECT_RATIO_LABEL"
+					description="MOD_JTCF_KEEP_ASPECT_RATIO_LABEL_DESC">
+					<option value="true">JYES</option>
+					<option value="false">JNO </option>
+				</field>
+				
+				<field 
+					name="thumb_width" 
+					type="text" 
+					default="300" 
+					label="MOD_JTCF_THUMBNAIL_WIDTH_LABEL" 
+					description="MOD_JTCF_THUMBNAIL_WIDTH_DESC" />
+				<field 
+					name="thumb_height" 
+					type="text" 
+					default="150"
+					showon= "keep_aspect_ratio:false"
+					label="MOD_JTCF_THUMBNAIL_HEIGHT_LABEL" 
+					description="MOD_JTCF_THUMBNAIL_HEIGHT_DESC" />
+				
+				<field 
+					name="thumb_margin" 
+					type="text" 
+					default="15px" 
+					label="MOD_JTCF_THUMBNAIL_MARGIN_LABEL" 
+					description="MOD_JTCF_THUMBNAIL_MARGIN_DESC" />
+				<field 
+					name="show_default_thumb" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_THUMBNAIL_SHOW_DEFAULT_LABEL" 
+					description="MOD_JTCF_THUMBNAIL_SHOW_DEFAULT_DESC"
+					class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+					<field 
+					name="hover_icons" 
+					type="radio" 
+					default="1" 
+					label="MOD_JTCF_THUMBNAIL_HOVERICONS_LABEL" 
+					description="MOD_JTCF_THUMBNAIL_HOVERICONS_LABEL_DESC"
+					class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+				<field 
+					name="link_image" 
+					type="radio" 
+					default="0" 
+					label="MOD_JTCF_THUMBNAIL_LINKIMAGE_LABEL" 
+					description="MOD_JTCF_THUMBNAIL_LINKIMAGE_LABEL_DESC"
+					class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field 
+					name="use_caption" 
+					type="radio" 
+					default="0" 
+					class="btn-group btn-group-yesno" 
+					label="MOD_JTCF_USE_CAPTION"
+					description="MOD_JTCF_USE_CAPTION_DESC">		
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			<field name="delete_thumbs" type="Cache" label="MOD_JTCF_THUMBNAIL_DELETE_LABEL" description="MOD_JTCF_THUMBNAIL_DELETE_LABEL_DESC"   />
+			
+			<field 
+					name="Lightbox" 
+					type="note" 
+					class="alert alert-info" 
+					label="MOD_JTCF_LIGHTBOX_SETTINGS" />
+				
+				<field 
+					name="fadeDuration" 
+					type="text" 
+					default="300" 
+					label="MOD_JTCF_LIGHTBOX_FADEDURATION" 
+					description="MOD_JTCF_LIGHTBOX_FADEDURATION_DESC" />
+					
+					<field 
+					name="fitImagesInViewport" 
+					type="radio" 
+					default="true" 
+					label="MOD_JTCF_LIGHTBOX_FITIMAGES"
+					class="btn-group btn-group-yesno" 
+					description="MOD_JTCF_LIGHTBOX_FITIMAGES_DESC">		
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				
+				<field 
+					name="imageFadeDuration" 
+					type="text" 
+					default="300" 
+					label="MOD_JTCF_LIGHTBOX_IMAGEFADEDURATION" 
+					description="MOD_JTCF_LIGHTBOX_IMAGEFADEDURATION_DESC" />
+				
+				<field 
+					name="positionFromTop" 
+					type="text" 
+					default="150" 
+					label="MOD_JTCF_LIGHTBOX_TOPPOSITON" 
+					description="MOD_JTCF_LIGHTBOX_TOPPOSITON_DESC" />
+					
+					<field 
+					name="resizeDuration" 
+					type="text" 
+					default="150" 
+					label="MOD_JTCF_LIGHTBOX_RESIZEDURATION" 
+					description="MOD_JTCF_LIGHTBOX_RESIZEDURATION_DESC" />
+				
+			</fieldset>
+			
+				<fieldset name="Mobile">
+					<field 
+					name="slideColumnsm" 
+					type="text" 
+					default="2" 
+					label="MOD_JTCF_SLIDECOLUMN_SMALL_LABEL" 
+					description="MOD_JTCF_SLIDECOLUMN_SMALL_LABEL_DESC" />
+										
+					<field 
+					name="slideColumnxs" 
+					type="text" 
+					default="1" 
+					label="MOD_JTCF_SLIDECOLUMN_EXTRASMALL_LABEL" 
+					description="MOD_JTCF_SLIDECOLUMN_EXTRASMALL_LABEL_DESC" />
+				
+					</fieldset>
+					
+			<fieldset name="advanced">
+			
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="custom-select"
+				/>
+				<field
+					name="LoadLightbox"
+					type="radio"
+					default="1"
+					class="btn-group btn-group-yesno"
+					label="MOD_JTCF_LOADLIGHTBOX_LABEL"
+					description="MOD_JTCF_LOADLIGHTBOX_LABEL_DESC"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="rtl"
+					type="radio"
+					default="false"
+					class="btn-group btn-group-yesno"
+					label="COM_MODULES_FIELD_RTL_LABEL"
+					description="COM_MODULES_FIELD_RTL_LABEL_DESC"
+					>
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					rows="3"
+				/>
+<field name="strip_tags" type="radio" default="1" class="btn-group"
+					label="MOD_JTCF_STRIP_TAGS" description="MOD_JTCF_STRIP_TAGS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+       
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

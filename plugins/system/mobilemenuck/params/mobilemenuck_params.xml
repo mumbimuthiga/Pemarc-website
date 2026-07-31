@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="params">
+		<fieldset name="mobilemenuck" label="PLG_MOBILEMENUCK_PARAMS_FIELDSET_LABEL">
+			<field
+				name="mobilemenuck_info"
+				type="mobilemenuckinfo"
+			/>
+			<field
+				name="mobilemenuck_enable"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_ENABLE_LABEL"
+				description="PLG_MOBILEMENUCK_ENABLE_DESC"
+				class="btn-group"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_styles"
+				type="mobilemenuckonlypro"
+				showlabel="true"
+				label="PLG_MOBILEMENUCK_SELECT_STYLE_LABEL"
+				description="PLG_MOBILEMENUCK_SELECT_STYLE_DESC"
+				default=""
+				showon=""
+			/>
+			<field
+				name="mobilemenuck_merge"
+				type="mobilemenuckonlypro"
+				showlabel="true"
+				label="PLG_MOBILEMENUCK_MERGE_WITH_LABEL"
+				description="PLG_MOBILEMENUCK_MERGE_WITH_DESC"
+				default=""
+			/>
+			<field
+				name="mobilemenuck_detectiontype"
+				type="list"
+				default="resolutionanddevices"
+				label="PLG_MOBILEMENUCK_DETECTIONTYPE_LABEL"
+				description="PLG_MOBILEMENUCK_DETECTIONTYPE_DESC"
+				icon="application_form_magnify.png"
+			>
+				<option value="resolutionanddevices">PLG_MOBILEMENUCK_RESOLUTION_AND_DEVICES</option>
+				<option value="resolution">PLG_MOBILEMENUCK_RESOLUTION</option>
+				<option value="tablet">PLG_MOBILEMENUCK_TABLET</option>
+				<option value="phone">PLG_MOBILEMENUCK_PHONE</option>
+				<option value="all">PLG_MOBILEMENUCK_ALL_DEVICES</option>
+			</field>
+			<field
+				name="mobilemenuck_resolution"
+				type="text"
+				label="PLG_MOBILEMENUCK_MOBILERESOLUTION_LABEL"
+				description="PLG_MOBILEMENUCK_MOBILERESOLUTION_DESC"
+				icon="width.png"
+				suffix="px"
+				default="640" 
+				showon="mobilemenuck_detectiontype:resolution,resolutionanddevices"
+			/>
+			<field
+				name="mobilemenuck_container"
+				type="list"
+				default="body"
+				label="PLG_MOBILEMENUCK_CONTAINER_LABEL"
+				description="PLG_MOBILEMENUCK_CONTAINER_DESC"
+				icon="application_side_list.png"
+			>
+				<option value="body">PLG_MOBILEMENUCK_BODY</option>
+				<option value="menucontainer">PLG_MOBILEMENUCK_MENUCONTAINER</option>
+				<option value="topfixed">PLG_MOBILEMENUCK_TOPFIXED</option>
+				<option value="custom">PLG_MOBILEMENUCK_CUSTOM_POSITION</option>
+			</field>
+			<field
+				name="mobilemenuck_custom_position"
+				type="text"
+				label="PLG_MOBILEMENUCK_CUSTOM_POSITION_LABEL"
+				description="PLG_MOBILEMENUCK_CUSTOM_POSITION_DESC"
+				default="#css_selector"
+				showon="mobilemenuck_container:custom"
+			/>
+			<field
+				name="mobilemenuck_topfixedeffect"
+				type="list"
+				default="always"
+				label="PLG_MOBILEMENUCK_TOPFIXED_EFFECT_LABEL"
+				description="PLG_MOBILEMENUCK_TOPFIXED_EFFECT_DESC"
+				showon="mobilemenuck_container:topfixed"
+			>
+				<option value="always">PLG_MOBILEMENUCK_ALWAYS</option>
+				<option value="onscroll">PLG_MOBILEMENUCK_ONSCROLL</option>
+			</field>
+			<field
+				name="mobilemenuck_displayeffect"
+				type="list"
+				default="normal"
+				label="PLG_MOBILEMENUCK_DISPLAYEFFECT_LABEL"
+				description="PLG_MOBILEMENUCK_DISPLAYEFFECT_DESC"
+				icon="chart_curve.png"
+			>
+				<option value="normal">PLG_MOBILEMENUCK_NORMAL</option>
+				<option value="slideleft">PLG_MOBILEMENUCK_SLIDELEFT</option>
+				<option value="slideright">PLG_MOBILEMENUCK_SLIDERIGHT</option>
+				<option value="slideleftover">PLG_MOBILEMENUCK_SLIDELEFT_OVER</option>
+				<option value="sliderightover">PLG_MOBILEMENUCK_SLIDERIGHT_OVER</option>
+				<option value="topfixed">PLG_MOBILEMENUCK_TOPFIXED</option>
+				<option value="open">PLG_MOBILEMENUCK_OPEN_SLIDE</option>
+			</field>
+			<field
+				name="mobilemenuck_menuwidth"
+				type="text"
+				default="300"
+				label="PLG_MOBILEMENUCK_MOBILEMENUWIDTH_LABEL"
+				description="PLG_MOBILEMENUCK_MOBILEMENUWIDTH_DESC"
+				icon="width.png"
+				showon="mobilemenuck_displayeffect:slideleft,slideright,slideleftover,sliderightover"
+			/>
+			<field
+				name="mobilemenuck_displaytype"
+				type="list"
+				default="accordion"
+				label="PLG_MOBILEMENUCK_DISPLAYTYPE_LABEL"
+				description="PLG_MOBILEMENUCK_DISPLAYTYPE_DESC"
+				icon="application_view_list.png"
+			>
+				<option value="flat">PLG_MOBILEMENUCK_FLAT</option>
+				<option value="accordion">PLG_MOBILEMENUCK_ACCORDION</option>
+				<option value="fade">PLG_MOBILEMENUCK_FADELEVELS</option>
+				<option value="push">PLG_MOBILEMENUCK_PUSHLEVELS</option>
+				<option value="flyout">PLG_MOBILEMENUCK_FLYOUT</option>
+			</field>
+			<field
+				name="mobilemenuck_openedonactiveitem"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_OPENED_ON_ACTIVE_ITEM_LABEL"
+				description="PLG_MOBILEMENUCK_OPENED_ON_ACTIVE_ITEM_DESC"
+				class="btn-group"
+				icon="chart_organisation_add.png"
+				showon="mobilemenuck_displaytype:accordion[OR]mobilemenuck_displaytype:fade[OR]mobilemenuck_displaytype:push[OR]mobilemenuck_displaytype:flyout"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_accordion_use_effects"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_ACCORDION_EFFECT_LABEL"
+				description="PLG_MOBILEMENUCK_ACCORDION_EFFECT_DESC"
+				class="btn-group"
+				showon="mobilemenuck_displaytype:accordion"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_accordion_toggle"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_ACCORDION_TOGGLE_LABEL"
+				description="PLG_MOBILEMENUCK_ACCORDION_TOGGLE_DESC"
+				class="btn-group"
+				showon="mobilemenuck_displaytype:accordion"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_tooglebarevent"
+				type="list"
+				default="click"
+				label="PLG_MOBILEMENUCK_TOGGLE_BAR_EVENT_LABEL"
+				description="PLG_MOBILEMENUCK_TOGGLE_BAR_EVENT_DESC"
+				icon="application_view_list.png"
+			>
+				<option value="click">PLG_MOBILEMENUCK_CLICK</option>
+				<option value="mouseover">PLG_MOBILEMENUCK_MOUSEOVER</option>
+			</field>
+			<field
+				name="mobilemenuck_tooglebaron"
+				type="list"
+				default="all"
+				label="PLG_MOBILEMENUCK_TOGGLE_BAR_ON_LABEL"
+				description="PLG_MOBILEMENUCK_TOGGLE_BAR_ON_DESC"
+				icon="application_view_list.png"
+			>
+				<option value="all">PLG_MOBILEMENUCK_FULL_BAR</option>
+				<option value="button">PLG_MOBILEMENUCK_ONLY8BUTTON</option>
+			</field>
+			<field
+				name="mobilemenuck_useimages"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_MOBILEUSEIMAGE_LABEL"
+				description="PLG_MOBILEMENUCK_MOBILEUSEIMAGE_DESC"
+				class="btn-group"
+				icon="application_view_gallery.png"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_usemodules"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_MOBILEUSEMODULE_LABEL"
+				description="PLG_MOBILEMENUCK_MOBILEUSEMODULE_DESC"
+				class="btn-group"
+				icon="application_form.png"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_showdesc"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_SHOWDESC_LABEL"
+				description="PLG_MOBILEMENUCK_SHOWDESC_DESC"
+				class="btn-group"
+				icon="application_view_list.png"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_lock_button"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_LOCK_BUTTON_LABEL"
+				description="PLG_MOBILEMENUCK_LOCK_BUTTON_DESC"
+				class="btn-group"
+				showon="mobilemenuck_lock_forced:0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_lock_forced"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_LOCK_FORCED_LABEL"
+				description="PLG_MOBILEMENUCK_LOCK_FORCED_DESC"
+				class="btn-group"
+				showon="mobilemenuck_lock_button:0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_counter"
+				type="radio"
+				default="0"
+				label="PLG_MOBILEMENUCK_COUNTER_LABEL"
+				class="btn-group"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_hide_desktop"
+				type="radio"
+				default="1"
+				label="PLG_MOBILEMENUCK_HIDE_DESKTOP_LABEL"
+				class="btn-group"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_overlay"
+				type="radio"
+				default="1"
+				label="PLG_MOBILEMENUCK_OVERLAY_LABEL"
+				class="btn-group"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_overlay_color"
+				type="mobilemenuckonlypro"
+				showlabel="true"
+				default="#000000"
+				label="PLG_MOBILEMENUCK_OVERLAY_COLOR_LABEL"
+				showon="mobilemenuck_overlay:1"
+				/>
+			<field
+				name="mobilemenuck_overlay_opacity"
+				type="mobilemenuckonlypro"
+				default="0.3"
+				showlabel="true"
+				label="PLG_MOBILEMENUCK_OVERLAY_OPACITY_LABEL"
+				showon="mobilemenuck_overlay:1"
+				/>
+			<field
+				name="mobilemenuck_iconspacer"
+				type="mobilemenuckspacer"
+				label="PLG_MOBILEMENUCK_ICONS_LABEL"
+				style="title"
+			/>
+			<field
+				name="mobilemenuck_icononlypro"
+				type="mobilemenuckonlypro"
+			/>
+			<field
+				name="mobilemenuck_icon_video"
+				type="mobilemenuckvideo"
+				url="https://youtu.be/D_6exvwX8wQ"
+			/>
+			<field
+				name="mobilemenuck_textspacer"
+				type="mobilemenuckspacer"
+				label="PLG_MOBILEMENUCK_TEXT_LABEL"
+				style="title"
+			/>
+			<field
+				name="mobilemenuck_showmobilemenutext"
+				type="list"
+				default="default"
+				label="PLG_MOBILEMENUCK_SHOWMOBILEMENUTEXT_LABEL"
+				description="PLG_MOBILEMENUCK_SHOWMOBILEMENUTEXT_DESC"
+				icon="font.png"
+			>
+				<option value="default">PLG_MOBILEMENUCK_DEFAULTTEXT</option>
+				<option value="custom">PLG_MOBILEMENUCK_CUSTOMTEXT</option>
+				<option value="none">PLG_MOBILEMENUCK_NONE</option>
+			</field>
+			<field
+				name="mobilemenuck_mobilemenutext"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MOBILEMENUTEXT_LABEL"
+				description="PLG_MOBILEMENUCK_MOBILEMENUTEXT_DESC"
+				icon="text_signature.png" 
+				showon="mobilemenuck_showmobilemenutext:custom"
+				/>
+			<field
+				name="mobilemenuck_beforetext"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_BEFORETEXT_LABEL"
+				description="PLG_MOBILEMENUCK_BEFORETEXT_DESC"
+				icon="text_signature.png" 
+				filter="raw"
+				/>
+			<field
+				name="mobilemenuck_aftertext"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_AFTERTEXT_LABEL"
+				description="PLG_MOBILEMENUCK_AFTERTEXT_DESC"
+				icon="text_signature.png" 
+				filter="raw"
+				/>
+			<field
+				name="mobilemenuck_logospacer"
+				type="mobilemenuckspacer"
+				label="PLG_MOBILEMENUCK_LOGO_LABEL"
+				style="title"
+			/>
+			<field
+				name="mobilemenuck_showlogo"
+				type="list"
+				default="1"
+				label="PLG_MOBILEMENUCK_SHOWLOGO_LABEL"
+				description="PLG_MOBILEMENUCK_SHOWLOGO_DESC"
+				icon="image.png"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field
+				name="mobilemenuck_logo_where"
+				type="list"
+				multiple="true"
+				default="1"
+				label="PLG_MOBILEMENUCK_LOGO_WHERE_LABEL"
+				description="PLG_MOBILEMENUCK_LOGO_WHERE_DESC"
+				icon="image.png"
+				showon="mobilemenuck_showlogo!:0"
+			>
+				<option value="1">PLG_MOBILEMENUCK_SHOWLOGO_MOBILE</option>
+				<option value="2">PLG_MOBILEMENUCK_SHOWLOGO_MENUBAR</option>
+				<option value="3">PLG_MOBILEMENUCK_SHOWLOGO_TOPBAR</option>
+			</field>
+			<field
+				name="mobilemenuck_logo_source"
+				type="list"
+				default="maximenuck"
+				label="PLG_MOBILEMENUCK_LOGO_SOURCE_LABEL"
+				description="PLG_MOBILEMENUCK_LOGO_SOURCE_DESC"
+				icon="image.png"
+				showon="mobilemenuck_showlogo!:0"
+			>
+				<option value="maximenuck">Maximenu CK</option>
+				<option value="custom">PLG_MOBILEMENUCK_CUSTOM_LOGO</option>
+			</field>
+			<field
+				name="mobilemenuck_logoimage"
+				type="media"
+				icon="image.png"
+				label="PLG_MOBILEMENUCK_LOGOIMAGE_LABEL"
+				description="PLG_MOBILEMENUCK_LOGOIMAGE_DESC" 
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logolink"
+				type="text"
+				icon="link_go.png"
+				label="PLG_MOBILEMENUCK_LOGOLINK_LABEL"
+				description="PLG_MOBILEMENUCK_LOGOLINK_DESC"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logoalt"
+				type="text"
+				icon="font.png"
+				label="PLG_MOBILEMENUCK_LOGOALT_LABEL"
+				description="PLG_MOBILEMENUCK_LOGOALT_DESC"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logoposition"
+				type="list"
+				default="left"
+				label="PLG_MOBILEMENUCK_LOGOPOSITION_LABEL"
+				description="PLG_MOBILEMENUCK_LOGOPOSITION_DESC"
+				icon="arrow_direction.png"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			>
+				<option value="left">PLG_MOBILEMENUCK_LEFT</option>
+				<option value="center">PLG_MOBILEMENUCK_CENTER</option>
+				<option value="right">PLG_MOBILEMENUCK_RIGHT</option>
+			</field>
+			<field
+				name="mobilemenuck_logowidth"
+				type="text"
+				label="PLG_MOBILEMENUCK_LOGOWIDTH_LABEL"
+				description="PLG_MOBILEMENUCK_LOGOWIDTH_DESC"
+				icon="width.png"
+				suffix="px"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logoheight"
+				type="text"
+				label="PLG_MOBILEMENUCK_LOGOHEIGHT_LABEL"
+				description="PLG_MOBILEMENUCK_LOGOHEIGHT_DESC"
+				icon="height.png"
+				suffix="px"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logomargintop"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MARGINTOP_LABEL"
+				description="PLG_MOBILEMENUCK_MARGINTOP_DESC"
+				icon="margin_top.png"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logomarginright"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MARGINRIGHT_LABEL"
+				description="PLG_MOBILEMENUCK_MARGINRIGHT_DESC"
+				icon="margin_right.png"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logomarginbottom"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MARGINBOTTOM_LABEL"
+				description="PLG_MOBILEMENUCK_MARGINBOTTOM_DESC"
+				icon="margin_bottom.png"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+			<field
+				name="mobilemenuck_logomarginleft"
+				type="text"
+				default=""
+				label="PLG_MOBILEMENUCK_MARGINLEFT_LABEL"
+				description="PLG_MOBILEMENUCK_MARGINLEFT_DESC"
+				icon="margin_left.png"
+				showon="mobilemenuck_showlogo!:0[AND]mobilemenuck_logo_source:custom"
+			/>
+		</fieldset>
+	</fields>
+</form>

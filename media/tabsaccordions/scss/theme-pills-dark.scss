@@ -1,0 +1,13 @@
+/**
+ * [Copyright Regular Labs]
+ */
+
+@import "../../regularlabs/scss/_variables";
+@import "_mixins";
+
+[data-rlta-element="container"][data-rlta-state="ready"][data-rlta-theme="pills-dark"] {
+    @import "_styling-pills";
+
+    @include colors(900, 700, 500, 900, 700, 500, 300, 200, 100, inherit);
+    @include color("black", $rl-black, rl-color(gray, 800), $rl-black, $rl-black, rl-color(gray, 800), $rl-black, rl-color(gray, 300), rl-color(gray, 200), rl-color(gray, 100), inherit);
+}

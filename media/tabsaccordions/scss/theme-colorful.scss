@@ -1,0 +1,13 @@
+/**
+ * [Copyright Regular Labs]
+ */
+
+@import "../../regularlabs/scss/_variables";
+@import "_mixins";
+
+[data-rlta-element="container"][data-rlta-theme="colorful"] {
+    @import "_styling-solid";
+
+    @include colors(300, 400, 500, 300, 400, 500, false, false, 100, true, true);
+    @include color("black", rl-color(gray, 700), rl-color(gray, 800), $rl-black, rl-color(gray, 700), rl-color(gray, 800), $rl-black, rl-color(gray, 100), rl-color(gray, 100), rl-color(gray, 100), true, true);
+}

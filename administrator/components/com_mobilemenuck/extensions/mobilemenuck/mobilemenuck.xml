@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="plugin"
+	version="3"
+	group="system"
+	method="upgrade">
+	<name>System - Mobile Menu CK</name>
+	<author>Cédric KEIFLIN</author>
+	<creationDate>September 2018</creationDate>
+	<copyright>Cédric KEIFLIN</copyright>
+	<license>GNU/GPL 3 http://www.gnu.org/licenses/gpl.html</license>
+	<authorEmail>ced1870@gmail.com</authorEmail>
+	<authorUrl>https://www.joomlack.fr</authorUrl>
+	<version>1.7.1</version>
+	<description>PLG_MOBILEMENUCK_XML_DESC</description>
+	<files>
+		<file plugin="mobilemenuck">mobilemenuck.php</file>
+		<filename>default.txt</filename>
+		<folder>elements</folder>
+		<folder>helpers</folder>
+		<folder>language</folder>
+		<folder>params</folder>
+	</files>
+	<media folder="media" destination="plg_system_mobilemenuck">
+		<folder>assets</folder>
+	</media>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_mobilemenuck.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_mobilemenuck.sys.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.plg_system_mobilemenuck.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.plg_system_mobilemenuck.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/plugins/system/mediabox_ck/elements">
+				<field 
+					name="include_meta" 
+					type="radio" 
+					default="0" 
+					label="MOBILEMENUCK_INCLUDE_META" 
+					class="btn-group" 
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

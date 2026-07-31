@@ -1,0 +1,4 @@
+/* IE8 specific css for Slideshow CK */
+.carouselck_wrap:after {
+	background: none;
+}

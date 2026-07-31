@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+	<name>com_sliderck</name>
+	<ckpro>0</ckpro>
+	<variant>free</variant>
+	<creationDate>September 2016</creationDate>
+	<copyright>Copyright (C) 2016. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<author>Cedric Keiflin</author>
+	<authorEmail>ced1870@gmail.com</authorEmail>
+	<authorUrl>https://www.joomlack.fr</authorUrl>
+	<version>2.5.1</version>
+	<description>COM_SLIDERCK_DESC</description>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<scriptfile>install.php</scriptfile>
+	<files folder="site">
+		<folder>language</folder>
+		<folder>views</folder>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>sliderck.php</filename>
+	</files>
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB/en-GB.com_sliderck.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.com_sliderck.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.com_sliderck.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.com_sliderck.sys.ini</language>
+	</languages>
+	<media folder="media" destination="com_sliderck">
+		<folder>assets</folder>
+		<folder>images</folder>
+	</media>
+	<administration>
+		<menu>COM_SLIDERCK</menu>
+		<files folder="administrator">
+			<folder>controllers</folder>
+			<folder>elements</folder>
+			<folder>export</folder>
+			<folder>extensions</folder>
+			<folder>helpers</folder>
+			<folder>language</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>sliderck.php</filename>
+		</files>
+		<languages folder="administrator">
+			<language tag="en-GB">language/en-GB/en-GB.com_sliderck.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_sliderck.sys.ini</language>
+			<language tag="fr-FR">language/fr-FR/fr-FR.com_sliderck.ini</language>
+			<language tag="fr-FR">language/fr-FR/fr-FR.com_sliderck.sys.ini</language>
+		</languages>
+	</administration>
+	<updateservers>
+		<server type="extension" priority="1" name="Slider CK Light Update">https://update.joomlack.fr/sliderck_light_update.xml</server>
+	</updateservers>
+</extension>

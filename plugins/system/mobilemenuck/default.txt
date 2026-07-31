@@ -1,0 +1,246 @@
+/* Mobile Menu CK - https://www.joomlack.fr */
+/* Automatic styles */
+
+.mobilemenuck-bar {display:none;position:relative;left:0;top:0;right:0;z-index:100;}
+.mobilemenuck-bar-title {display: block;}
+.mobilemenuck-bar-button {cursor:pointer;box-sizing: border-box;position:absolute; top: 0; right: 0;line-height:0.8em;font-family:Verdana;text-align: center;}
+.mobilemenuck {box-sizing: border-box;width: 100%;}
+.mobilemenuck-topbar {position:relative;}
+.mobilemenuck-title {display: block;}
+.mobilemenuck-button {cursor:pointer;box-sizing: border-box;position:absolute; top: 0; right: 0;line-height:0.8em;font-family:Verdana;text-align: center;}
+.mobilemenuck a {display:block;text-decoration: none;}
+.mobilemenuck a:hover {text-decoration: none;}
+.mobilemenuck .mobilemenuck-item > div {position:relative;}
+/* for accordion */
+.mobilemenuck-togglericon:after {cursor:pointer;text-align:center;display:block;position: absolute;right: 0;top: 0;content:"+";}
+.mobilemenuck .open .mobilemenuck-togglericon:after {content:"-";}
+.mobilemenuck-lock-button.mobilemenuck-button {right:45px}
+.mobilemenuck-lock-button.mobilemenuck-button svg {max-height:50%;}
+.mobilemenuck-lock-button.mobilemenuck-button::after {display: block;content: "";height: 100%;width: 100%;z-index: 1;position: absolute;top: 0;left: 0;}
+.mobilemenuck[data-display="flyout"] {overflow: initial !important;}
+.mobilemenuck[data-display="flyout"] .level1 + .mobilemenuck-submenu {position:absolute;top:0;left:auto;display:none;height:100vh;left:100%;}
+.mobilemenuck[data-display="flyout"] .level2 + .mobilemenuck-submenu {position:absolute;top:0;left:auto;display:none;height:100vh;left:100%;}
+.mobilemenuck[data-display="flyout"][data-effect*="slideright"] .level1 + .mobilemenuck-submenu {right:100%;left:auto;}
+.mobilemenuck[data-display="flyout"][data-effect*="slideright"] .level2 + .mobilemenuck-submenu {right:100%;left:auto;}
+
+/* RTL support */
+.rtl .mobilemenuck-bar-button {left: 0;right: auto;}
+.rtl .mobilemenuck-button {left: 0;right: auto;}
+.rtl .mobilemenuck-togglericon::after {left: 0;right: auto;}
+
+@media screen and (max-width: 640px) {
+.mobilemenuck[data-display="flyout"] .level1 + .mobilemenuck-submenu {position:static;width: initial !important;height: initial;}
+}
+@media screen and (max-width: 1000px) {
+.mobilemenuck[data-display="flyout"] .level2 + .mobilemenuck-submenu {position:static;width: initial !important;height: initial;}
+}
+.mobilemenuck-backbutton {
+	cursor: pointer;
+}
+
+.mobilemenuck-backbutton:hover {
+	opacity: 0.7;
+}
+
+|ID|[menu-bar] {
+	background: #464646;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-indent: 20px;
+	line-height: 43px;
+	font-size: 20px;
+}
+
+|ID|[menu-bar] a {
+	color: #FFFFFF;
+	font-weight: bold;
+	text-indent: 20px;
+	line-height: 43px;
+	font-size: 20px;
+}
+
+|ID|[menu-bar-button] {
+	background: #333333;
+	height: 43px;
+	width: 43px;
+	color: #FFFFFF;
+	padding-top: 8px;
+	font-size: 1.8em;
+}
+
+|ID|[menu-bar-button] a {
+	color: #FFFFFF;
+	font-size: 1.8em;
+}
+
+|ID|[menu] {
+	background: #464646;
+	color: #FFFFFF;
+	padding-bottom: 5px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+|ID|[menu] a {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+|ID|[menu-topbar] {
+	background: #464646;
+	height: 43px;
+	text-indent: 20px;
+	line-height: 43px;
+	font-size: 20px;
+}
+
+|ID|[menu-topbar] a {
+	text-indent: 20px;
+	line-height: 43px;
+	font-size: 20px;
+}
+
+|ID|[menu-topbar-button] {
+	min-height: 35px;
+	height: 43px;
+	width: 45px;
+	line-height: 35px;
+	font-size: 1.8em;
+}
+
+|ID|[menu-topbar-button] a {
+	line-height: 35px;
+	font-size: 1.8em;
+}
+
+|ID|[level1menuitem] {
+	background: #027EA6;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-o-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	color: #FFFFFF;
+	margin-top: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	padding-left: 15px;
+	line-height: 35px;
+}
+
+|ID|[level1menuitem] a {
+	color: #FFFFFF;
+	line-height: 35px;
+}
+
+|ID|[level1menuitemhover] {
+	background: #008bb8;
+}
+
+|ID|[level2menuitem] {
+	background: #FFFFFF;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-o-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	color: #000000;
+	margin-top: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	padding-left: 25px;
+	line-height: 35px;
+}
+
+|ID|[level2menuitem] a {
+	color: #000000;
+	line-height: 35px;
+}
+
+|ID|[level2menuitemhover] {
+	background: #f0f0f0;
+}
+
+|ID|[level3menuitem] {
+	background: #689332;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-o-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	color: #FFFFFF;
+	margin-top: 4px;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	padding-left: 35px;
+	line-height: 35px;
+}
+
+|ID|[level3menuitem] a {
+	color: #FFFFFF;
+	line-height: 35px;
+}
+
+|ID|[level3menuitemhover] {
+	background: #72a137;
+}
+
+|ID|[togglericon] {
+	background: #000000;
+	background: rgba(0,0,0,0.25);
+	-pie-background: rgba(0,0,0,0.25);
+	-moz-border-radius: 0px 5px 5px 0px;
+	-o-border-radius: 0px 5px 5px 0px;
+	-webkit-border-radius: 0px 5px 5px 0px;
+	border-radius: 0px 5px 5px 0px;
+	min-height: 35px;
+	height: 100%;
+	width: 35px;
+	padding-right: 5px;
+	padding-left: 5px;
+	line-height: 35px;
+	font-size: 1.7em;
+}
+
+|ID|[togglericon] a {
+	line-height: 35px;
+	font-size: 1.7em;
+}
+.mobilemaximenuck div span.descck {
+	padding-left: 10px;
+	font-size: 12px;
+}
+
+|ID| .mobilemenuck-item-counter {
+	display: inline-block;
+	margin: 0 5px;
+	padding: 10px;
+	font-size: 12px;
+	line-height: 0;
+	background: rgba(0,0,0,0.3);
+	color: #eee;
+	border-radius: 10px;
+	height: 20px;
+	transform: translate(10px,-3px);
+	box-sizing: border-box;
+}
+
+|ID| + .mobilemenuck-overlay {
+	position: fixed;
+	top: 0;
+	background: #000;
+	opacity: 0.3;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9;
+}
+
+|ID| .mobilemenuck-backbutton svg {
+	width: 14px;
+	fill: #fff;
+	position: relative;
+	left: -5px;
+	top: -2px;
+}

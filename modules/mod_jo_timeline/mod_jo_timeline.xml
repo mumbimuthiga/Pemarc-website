@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="5.0" client="site" method="upgrade">
+    <name>MOD_JO_TIMELINE</name>
+    <author>JewelOsman.Com</author>
+    <creationDate>April 2025</creationDate>
+    <copyright>Copyright (C) 2025 jewelosman.com.</copyright>
+    <license>GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <authorEmail>jewelosman@gmail.com</authorEmail>
+    <authorUrl>www.jewelosman.com</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_JO_TIMELINE_XML_DESCRIPTION</description>
+
+    <updateservers>
+        <server type="extension" priority="1" name="JO Timeline">https://devjo.jewelosman.com/downloads/mod_jo_timeline.xml</server>
+    </updateservers>
+
+    <files>
+        <filename module="mod_jo_timeline">mod_jo_timeline.php</filename>
+        <filename>helper.php</filename>
+        <folder>assets</folder>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_jo_timeline.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.mod_jo_timeline.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <!-- Mode -->
+                <field 
+                    name="mode" 
+                    type="radio" 
+                    label="MOD_JO_TIMELINE_MODE" 
+                    description="MOD_JO_TIMELINE_MODE_DESC" 
+                    class="btn-group btn-group-yesno"
+                    default="light">
+                    <option value="light">MOD_JO_TIMELINE_LIGHT</option>
+                    <option value="dark">MOD_JO_TIMELINE_DARK</option>
+                </field>
+
+                <field 
+                    name="tlstyle" 
+                    type="list" 
+                    label="MOD_JO_TIMELINE_TLSTYLE" 
+                    description="MOD_JO_TIMELINE_TLSTYLE_DESC" 
+                    default="zigzag1">
+                    <option value="card1">MOD_JO_TIMELINE_CARD1</option>
+                    <option value="card2">MOD_JO_TIMELINE_CARD2</option>
+                    <option value="chat1">MOD_JO_TIMELINE_CHAT1</option>
+                    <option value="chat2">MOD_JO_TIMELINE_CHAT2</option>
+                    <option value="circular">MOD_JO_TIMELINE_CIRCULAR</option>
+                    <option value="horizontal">MOD_JO_TIMELINE_HORIZONTAL</option>
+                    <option value="icons">MOD_JO_TIMELINE_ICONS</option>
+                    <option value="progress-bar">MOD_JO_TIMELINE_PROGRESS_BAR</option>
+                    <option value="thumbnails">MOD_JO_TIMELINE_THUMBNAILS</option>
+                    <option value="vertical">MOD_JO_TIMELINE_VERTICAL</option>
+                    <option value="zigzag1">MOD_JO_TIMELINE_ZIGZAG1</option>
+                    <option value="zigzag2">MOD_JO_TIMELINE_ZIGZAG2</option>
+                </field>
+
+                <field 
+                    name="marker_color_left" 
+                    type="color" 
+                    label="MOD_JO_TIMELINE_MARKER_COLOR_LEFT" 
+                    description="MOD_JO_TIMELINE_MARKER_COLOR_LEFT_DESC" 
+                    default="#007bff" />
+                <field 
+                    name="marker_color_right" 
+                    type="color" 
+                    label="MOD_JO_TIMELINE_MARKER_COLOR_RIGHT" 
+                    description="MOD_JO_TIMELINE_MARKER_COLOR_RIGHT_DESC" 
+                    default="#28a745" />
+
+                <field 
+                    name="source" 
+                    type="radio" 
+                    label="MOD_JO_TIMELINE_SOURCE" 
+                    description="MOD_JO_TIMELINE_SOURCE_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="custom">
+                    <option value="articles">MOD_JO_TIMELINE_ARTICLES</option>
+                    <option value="custom">MOD_JO_TIMELINE_CUSTOM</option>
+                </field>
+
+                <field
+                    name="custom_entries" 
+                    type="subform" 
+                    label="MOD_JO_TIMELINE_CUSTOM_ENTRIES" 
+                    description="MOD_JO_TIMELINE_CUSTOM_ENTRIES_DESC"
+                    multiple="true"
+                    layout="joomla.form.field.subform.repeatable"
+                    min="0"
+                    max="100"
+                    showon="source:custom">
+                    <form>
+                        <fieldset>
+                            <field 
+                                name="time" 
+                                type="text" 
+                                label="MOD_JO_TIMELINE_TIME" 
+                                description="MOD_JO_TIMELINE_TIME_DESC" />
+                            <field 
+                                name="title" 
+                                type="text" 
+                                label="MOD_JO_TIMELINE_TITLE" 
+                                description="MOD_JO_TIMELINE_TITLE_DESC" />
+                            <field 
+                                name="description" 
+                                type="textarea" 
+                                label="MOD_JO_TIMELINE_DESCRIPTION" 
+                                description="MOD_JO_TIMELINE_DESCRIPTION_DESC" />
+                            <field 
+                                name="image" 
+                                type="media" 
+                                label="MOD_JO_TIMELINE_IMAGE" 
+                                description="MOD_JO_TIMELINE_IMAGE_DESC" 
+                                directory="images" 
+                                preview="true" />
+                        </fieldset>
+                    </form>
+                </field>
+
+                <field
+                    name="catid"
+                    type="category"
+                    label="MOD_JO_TIMELINE_CATID"
+                    extension="com_content"
+                    multiple="true"
+                    layout="joomla.form.field.list-fancy-select"
+                    filter="intarray"
+                    showon="source:articles"
+                />
+                <field
+                    name="count"
+                    type="number"
+                    label="MOD_JO_TIMELINE_COUNT"
+                    default="5"
+                    filter="integer"
+                    min="1"
+                    validate="number"
+                    showon="source:articles"
+                />
+                <field
+                    name="ordering"
+                    type="list"
+                    label="MOD_JO_TIMELINE_ORDERING"
+                    default="p_dsc"
+                    validate="options"
+                    showon="source:articles">
+                    <option value="c_dsc">MOD_JO_TIMELINE_CREATED</option>
+                    <option value="m_dsc">MOD_JO_TIMELINE_MODIFIED</option>
+                    <option value="p_dsc">MOD_JO_TIMELINE_PUBLISHED</option>
+                    <option value="random">MOD_JO_TIMELINE_RANDOM</option>
+                </field>
+                <field 
+                    name="articles_order" 
+                    type="radio" 
+                    label="MOD_JO_TIMELINE_ARTICLES_ORDER" 
+                    description="MOD_JO_TIMELINE_ARTICLES_ORDER_DESC" 
+                    class="btn-group btn-group-yesno"
+                    default="desc"
+                    showon="source:articles">
+                    <option value="asc">MOD_JO_TIMELINE_ASCENDING</option>
+                    <option value="desc">MOD_JO_TIMELINE_DESCENDING</option>
+                </field>
+                <field
+                    name="show_time"
+                    type="radio"
+                    label="MOD_JO_TIMELINE_SHOW_TIME"
+                    description="MOD_JO_TIMELINE_SHOW_TIME_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="on"
+                    showon="source:articles">
+                    <option value="on">MOD_JO_TIMELINE_ON</option>
+                    <option value="off">MOD_JO_TIMELINE_OFF</option>
+                </field>
+                <field 
+                    name="date_format" 
+                    type="text" 
+                    label="MOD_JO_TIMELINE_DATE_FORMAT" 
+                    description="MOD_JO_TIMELINE_DATE_FORMAT_DESC" 
+                    default="Y-m-d H:i"
+                    showon="source:articles[AND]show_time:on" />
+                <field
+                    name="show_title"
+                    type="radio"
+                    label="MOD_JO_TIMELINE_SHOW_TITLE"
+                    description="MOD_JO_TIMELINE_SHOW_TITLE_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="on"
+                    showon="source:articles">
+                    <option value="on">MOD_JO_TIMELINE_ON</option>
+                    <option value="off">MOD_JO_TIMELINE_OFF</option>
+                </field>
+                <field
+                    name="show_description"
+                    type="radio"
+                    label="MOD_JO_TIMELINE_SHOW_DESCRIPTION"
+                    description="MOD_JO_TIMELINE_SHOW_DESCRIPTION_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="on"
+                    showon="source:articles">
+                    <option value="on">MOD_JO_TIMELINE_ON</option>
+                    <option value="off">MOD_JO_TIMELINE_OFF</option>
+                </field>
+                <field
+                    name="show_image"
+                    type="radio"
+                    label="MOD_JO_TIMELINE_SHOW_IMAGE"
+                    description="MOD_JO_TIMELINE_SHOW_IMAGE_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="on"
+                    showon="source:articles">
+                    <option value="on">MOD_JO_TIMELINE_ON</option>
+                    <option value="off">MOD_JO_TIMELINE_OFF</option>
+                </field>
+                <field 
+                    name="default_image" 
+                    type="media" 
+                    label="MOD_JO_TIMELINE_DEFAULT_IMAGE" 
+                    description="MOD_JO_TIMELINE_DEFAULT_IMAGE_DESC" 
+                    directory="images"
+                    showon="source:articles[AND]show_image:on"
+                    preview="true" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
