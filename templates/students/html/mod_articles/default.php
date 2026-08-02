@@ -8,6 +8,8 @@ use Joomla\CMS\Language\Text;
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_articles', 'mod_articles/mod-articles.css');
 
+
+
 if (!$list) {
     return;
 }
@@ -22,8 +24,10 @@ $isZetechNumbers = !empty($items) && ((int) $items[0]->catid === $zetechCategory
 $groupHeading = 'h4';
 if ((bool) $module->showtitle) {
     $modTitle = $params->get('header_tag');
-    if ($modTitle == 'h1') $groupHeading = 'h2';
-    elseif ($modTitle == 'h2') $groupHeading = 'h3';
+    if ($modTitle == 'h1')
+        $groupHeading = 'h2';
+    elseif ($modTitle == 'h2')
+        $groupHeading = 'h3';
 }
 
 // Standard layout suffix
@@ -31,12 +35,12 @@ $layoutSuffix = $params->get('title_only', 0) ? '_titles' : '_items';
 
 ?>
 
-<?php if ($isZetechNumbers) : ?>
+<?php if ($isZetechNumbers): ?>
     <!-- Zetech in Numbers custom layout -->
     <div class="zetech-numbers">
         <div class="container">
             <div class="row">
-                <?php foreach ($list as $item) : ?>
+                <?php foreach ($list as $item): ?>
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="number-box">
                             <div class="number"><?php echo $item->title; ?></div>
@@ -47,16 +51,16 @@ $layoutSuffix = $params->get('title_only', 0) ? '_titles' : '_items';
             </div>
         </div>
     </div>
-<?php else : ?>
+<?php else: ?>
     <!-- Default module layout -->
-    <?php if ($grouped) : ?>
-        <?php foreach ($list as $groupName => $items) : ?>
+    <?php if ($grouped): ?>
+        <?php foreach ($list as $groupName => $items): ?>
             <div class="mod-articles-group">
                 <<?php echo $groupHeading; ?>><?php echo Text::_($groupName); ?></<?php echo $groupHeading; ?>>
                 <?php require ModuleHelper::getLayoutPath('mod_articles', $params->get('layout', 'default') . $layoutSuffix); ?>
             </div>
         <?php endforeach; ?>
-    <?php else : ?>
+    <?php else: ?>
         <?php $items = $list; ?>
         <?php require ModuleHelper::getLayoutPath('mod_articles', $params->get('layout', 'default') . $layoutSuffix); ?>
     <?php endif; ?>

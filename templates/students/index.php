@@ -80,6 +80,7 @@ $wa->usePreset('template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'l
     ->useStyle('template.active.language')
     ->registerAndUseStyle($assetColorName, 'global/' . $paramsColorName . '.css')
     ->useStyle('template.user')
+      //->useStyle('template.courses')
     ->useScript('template.user')
     ->addInlineStyle(":root {
 		--hue: 214;
@@ -199,7 +200,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-content">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 container">
                             <jdoc:include type="component" />
                         </div>
                         

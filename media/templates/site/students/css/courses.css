@@ -1,0 +1,27 @@
+.course-hero{
+    padding:90px 0;
+    background:#f8f9fc;
+}
+
+.course-hero-content{
+    padding-right:50px;
+}
+
+.course-title{
+    font-size:64px;
+    font-weight:800;
+    line-height:1.1;
+    color:#1b243b;
+    margin-bottom:25px;
+}
+
+.course-subtitle{
+    font-size:22px;
+    line-height:1.7;
+    color:#555;
+}
+
+.course-hero-image img{
+    width:100%;
+    border-radius:18px;
+}
