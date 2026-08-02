@@ -74,13 +74,15 @@ if ($paramsFontScheme) {
         $this->getPreloadManager()->preload($wa->getAsset('style', 'fontscheme.current')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
     }
 }
-
+$this->addStyleSheet(
+    Uri::root() . 'media/templates/site/students/css/courses.css'
+);
 // Enable assets
 $wa->usePreset('template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr'))
     ->useStyle('template.active.language')
     ->registerAndUseStyle($assetColorName, 'global/' . $paramsColorName . '.css')
     ->useStyle('template.user')
-      //->useStyle('template.courses')
+      ->useStyle('template.courses')
     ->useScript('template.user')
     ->addInlineStyle(":root {
 		--hue: 214;
@@ -91,6 +93,8 @@ $wa->usePreset('template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'l
 		--template-special-color: #001B4C;
 		$fontStyles
 	}");
+
+ $wa->useStyle('template.courses');
 
 // Override 'template.active' asset to set correct ltr/rtl dependency
 $wa->registerStyle('template.active', '', [], [], ['template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr')]);

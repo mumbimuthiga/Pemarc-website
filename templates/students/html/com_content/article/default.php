@@ -31,24 +31,33 @@ foreach ($article->jcfields as $field)
 
             <div class="col-lg-6 course-hero-content">
 
+                <?php if (!empty($fields['program-code'])) : ?>
+                    <span class="course-code">
+                        <?= htmlspecialchars($fields['program-code']); ?>
+                    </span>
+                <?php endif; ?>
+
                 <h1 class="course-title">
                     <?= htmlspecialchars($article->title); ?>
                 </h1>
 
                 <p class="course-subtitle">
-                    <?= htmlspecialchars($fields['hero-subtitle'] ?? ''); ?>
+                    <?= nl2br(htmlspecialchars($fields['hero-subtitle'] ?? '')); ?>
                 </p>
 
             </div>
 
-            <div class="col-lg-6 course-hero-image">
+            <div class="col-lg-6">
 
                 <?php if (!empty($fields['hero-image'])) : ?>
 
-                    <img
-                        src="<?= htmlspecialchars($fields['hero-image']); ?>"
-                        class="img-fluid"
-                        alt="<?= htmlspecialchars($article->title); ?>">
+                    <div class="course-hero-image">
+
+                        <img
+                            src="<?= htmlspecialchars($fields['hero-image']); ?>"
+                            alt="<?= htmlspecialchars($article->title); ?>">
+
+                    </div>
 
                 <?php endif; ?>
 
@@ -59,7 +68,6 @@ foreach ($article->jcfields as $field)
     </div>
 
 </section>
-
 <section class="course-pricing">
 
     <div class="container">
