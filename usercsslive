@@ -79,7 +79,6 @@ div#maximenuck110 ul.maximenuck li div.floatck ul.maximenuck2,div#maximenuck110 
 .top-menu{display:none;}
 .lower-menu{text-align:center;}
 .lower-menu .row{align-items:center;}
-
 .lower-menu ul.maximenuck li.maximenuck.level1 a{font-size:13px;padding:6px 8px;}
 .lower-menu .cta-wrapper a{display:inline-block;font-size:12px;padding:6px 8px;}
 .navigation .logo-container img,.lower-menu .logo-container img{max-width:120px;}
@@ -88,57 +87,44 @@ div#maximenuck110 ul.maximenuck li div.floatck ul.maximenuck2,div#maximenuck110 
 
 
 }
-/* Mobile-first fixes for .lower-menu */
 @media (max-width: 767px) {
     .lower-menu .row {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        flex-wrap: nowrap !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* was flex-start */
+        gap: 15px; /* controls spacing between logo and hamburger */
+        flex-wrap: wrap;
     }
 
-    /* Logo column */
     .lower-menu .col-md-2 {
-        width: auto !important;
-        flex: 0 0 auto !important;
-        max-width: none !important;
-        padding: 0 !important;
-    }
-
-    .lower-menu .logo-container img {
-        max-height: 40px !important;
-        width: auto !important;
-    }
-
-    /* Menu column - hide by default, shown via JS toggle */
-    .lower-menu .col-md-9 {
-        order: 3;
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-        display: none; /* toggle this with JS when hamburger is clicked */
-    }
-
-    .lower-menu .col-md-9.menu-open {
-        display: block;
-    }
-
-    /* Search/toggle column */
-    .lower-menu .col-md-1 {
         width: auto;
         flex: 0 0 auto;
         max-width: none;
         padding: 0;
     }
 
+    .lower-menu .logo-container img {
+        max-height: 40px;
+        width: auto;
+    }
+
+    .lower-menu .col-md-9 {
+        border:2px solid red;
+        width: auto;
+        flex: 0 0 auto;   /* shrink to fit the hamburger, not 9/12 width */
+        max-width: none;
+        padding: 0;
+        order: 2; /* keep MaxiMenu's hamburger next to logo, not stacked below */
+    }
+
+    /* hide search on mobile, as agreed */
+    .lower-menu .engine-button,
     .lower-menu .engine {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 10;
-        background: #fff;
-        padding: 10px 15px;
+        display: none !important;
+    }
+
+    .lower-menu .col-md-1 {
+        display: none; /* nothing left in here once search is hidden */
     }
 }
 
@@ -153,6 +139,7 @@ div#maximenuck110 ul.maximenuck li div.floatck ul.maximenuck2,div#maximenuck110 
         padding: 6px 0;
     }
 }
+
 
 
 [data-id="maximenuck110"] .mobilemenuck-bar-title {background: #fff !important;}
